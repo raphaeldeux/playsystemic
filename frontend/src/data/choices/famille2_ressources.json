@@ -1,0 +1,38 @@
+[
+  {
+    "id": "choice_ressources_eau",
+    "famille": "ressources",
+    "ordre": 1,
+    "question": "Vous dirigez la politique économique d'une région en forte croissance. L'industrie réclame davantage d'eau pour ses processus de production.",
+    "contexte": "La région connaît une croissance économique soutenue. La chambre de commerce demande de nouveaux forages et barrages pour répondre aux besoins industriels. Les zones humides locales sont déjà en mauvais état.",
+    "choix_A": {
+      "label": "Capter davantage d'eau via de nouveaux barrages",
+      "croyance_id": "lot6-2",
+      "effets": [
+        { "indicatorId": "ecosystems", "delta": -0.08, "delayYears": 2 },
+        { "indicatorId": "resources", "delta": -0.06, "delayYears": 5 },
+        { "indicatorId": "climate", "delta": -0.04, "delayYears": 10 }
+      ],
+      "feedback": "La production augmente à court terme. Mais les zones humides se dégradent, réduisant la capacité de rétention des sols. Dans 15 ans, les sécheresses seront plus fréquentes et plus sévères. Boucle renforçante activée : surextraction → dégradation écosystèmes → moins de services hydrologiques → plus de captage nécessaire."
+    },
+    "choix_B": {
+      "label": "Instaurer des quotas de consommation d'eau par secteur",
+      "effets": [
+        { "indicatorId": "resources", "delta": -0.02, "delayYears": 1 }
+      ],
+      "feedback": "Les quotas ralentissent la dégradation mais ne s'attaquent pas à la croyance fondatrice. La pression économique fera lever les quotas d'ici 5-10 ans. C'est 'changer LE système', pas 'changer DE système'."
+    },
+    "choix_C": {
+      "label": "Engager une politique d'hydrologie régénérative",
+      "croyance_requise": "lot7-2",
+      "carte_fresque": "lot8-2",
+      "effets": [
+        { "indicatorId": "ecosystems", "delta": 0.12, "delayYears": 15 },
+        { "indicatorId": "resources", "delta": 0.10, "delayYears": 10 },
+        { "indicatorId": "climate", "delta": 0.06, "delayYears": 20 },
+        { "indicatorId": "resilience", "delta": 0.08, "delayYears": 12 }
+      ],
+      "feedback": "Les effets positifs seront visibles dans 10-20 ans. Court terme : baisse de productivité apparente. Long terme : +résilience hydrique, +biodiversité, boucle équilibrante activée. Condition : la croyance 'Terre finie' doit avoir été intégrée pour débloquer l'effet complet (sinon ×0.5)."
+    }
+  }
+]

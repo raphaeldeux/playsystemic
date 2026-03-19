@@ -1,0 +1,68 @@
+[
+  {
+    "id": "lot7-1",
+    "lot": 7,
+    "titre": "La richesse de l'existence ne se mesure pas à ce que l'on possède",
+    "paradigme": "B",
+    "famille": "besoins",
+    "texte_court": "Le bien-être véritable vient des relations, de la santé, de la créativité et du sens — pas de l'accumulation matérielle.",
+    "texte_complet": "Cette croyance actualisée permet de redéfinir la prospérité : on peut être riche de liens, de savoirs, de santé et de sens tout en consommant moins. Elle déverrouille les politiques de care, de sobriété heureuse et de bien vivre commun.",
+    "carte_opposee": "lot6-1",
+    "position_fresque": { "x": 100, "y": 400 }
+  },
+  {
+    "id": "lot7-2",
+    "lot": 7,
+    "titre": "Le système Terre est fini et déstabilisé",
+    "paradigme": "B",
+    "famille": "ressources",
+    "texte_court": "La biosphère a des limites physiques et des équilibres dynamiques que nos activités ont profondément perturbés.",
+    "texte_complet": "Reconnaître la finitude de la Terre et son état de déstabilisation est la condition pour passer des règles d'extraction à des règles de régénération. Sans cette croyance, les pratiques régénératives restent inefficaces à 50%.",
+    "carte_opposee": "lot6-2",
+    "position_fresque": { "x": 300, "y": 400 }
+  },
+  {
+    "id": "lot7-3",
+    "lot": 7,
+    "titre": "Les êtres vivants sont interdépendants",
+    "paradigme": "B",
+    "famille": "valeur",
+    "texte_court": "Humains, non-humains, microorganismes et écosystèmes forment un tissu d'interdépendances dont nous faisons partie.",
+    "texte_complet": "Reconnaître les interdépendances change fondamentalement ce qu'on considère comme valeur : une économie saine doit prendre soin de l'ensemble du tissu vivant, pas seulement des individus qui la composent.",
+    "carte_opposee": "lot6-3",
+    "position_fresque": { "x": 500, "y": 400 }
+  },
+  {
+    "id": "lot7-4",
+    "lot": 7,
+    "titre": "La pensée systémique permet de danser avec les systèmes",
+    "paradigme": "B",
+    "famille": "production",
+    "texte_court": "Les systèmes complexes ne se contrôlent pas — on peut les comprendre, les nourrir et co-évoluer avec eux.",
+    "texte_complet": "La pensée systémique accepte l'incertitude et l'émergence. Elle favorise la robustesse sur la performance, l'adaptation sur le contrôle. Elle génère des technologies choisies pour leur contribution au bien commun plutôt que pour leur efficacité sectorielle.",
+    "carte_opposee": "lot6-4",
+    "position_fresque": { "x": 700, "y": 400 }
+  },
+  {
+    "id": "lot7-5",
+    "lot": 7,
+    "titre": "Les êtres vivants s'organisent en réseaux d'interdépendances",
+    "paradigme": "B",
+    "famille": "organisation",
+    "texte_court": "Les formes d'organisation les plus robustes et créatives sont les réseaux distribués, pas les pyramides de contrôle.",
+    "texte_complet": "Dans la nature, la résilience vient de la diversité et de la redondance en réseau. Cette croyance légitime la gouvernance distribuée, les coopératives, les communs et le leadership régénératif.",
+    "carte_opposee": "lot6-5",
+    "position_fresque": { "x": 900, "y": 400 }
+  },
+  {
+    "id": "lot7-6",
+    "lot": 7,
+    "titre": "L'accès aux biens est un droit, la symbiose est la loi de la nature",
+    "paradigme": "B",
+    "famille": "echanges",
+    "texte_court": "L'accès aux ressources fondamentales est un droit humain. La coopération et la symbiose sont aussi naturelles que la compétition.",
+    "texte_complet": "Cette double croyance actualisée ouvre la voie aux communs, aux échanges coopératifs et aux systèmes monétaires à visée régénérative. Elle reconnaît que la nature est autant symbiose que compétition.",
+    "carte_opposee": "lot6-6",
+    "position_fresque": { "x": 1100, "y": 400 }
+  }
+]

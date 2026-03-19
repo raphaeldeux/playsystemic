@@ -1,0 +1,68 @@
+[
+  {
+    "id": "lot6-1",
+    "lot": 6,
+    "titre": "Avoir, c'est être",
+    "paradigme": "A",
+    "famille": "besoins",
+    "texte_court": "La valeur d'une personne se mesure à ce qu'elle possède. L'accumulation matérielle est le signe du succès et du bonheur.",
+    "texte_complet": "Cette croyance fait du niveau de consommation un indicateur de réussite sociale. Elle pousse à l'accumulation perpétuelle et rend invisible la richesse non matérielle (relations, santé, nature). Elle génère la règle : répondre d'abord aux besoins matériels et de loisirs.",
+    "carte_opposee": "lot7-1",
+    "position_fresque": { "x": 100, "y": 200 }
+  },
+  {
+    "id": "lot6-2",
+    "lot": 6,
+    "titre": "La nature est une ressource infinie",
+    "paradigme": "A",
+    "famille": "ressources",
+    "texte_court": "La nature est à la disposition de l'humanité, disponible en quantité illimitée et gratuitement.",
+    "texte_complet": "Cette croyance permet d'extraire sans compter, de polluer sans conscience et d'ignorer les limites planétaires. Elle génère les règles d'extraction intensive des ressources naturelles et d'utilisation des énergies fossiles.",
+    "carte_opposee": "lot7-2",
+    "position_fresque": { "x": 300, "y": 200 }
+  },
+  {
+    "id": "lot6-3",
+    "lot": 6,
+    "titre": "Les individus sont indépendants",
+    "paradigme": "A",
+    "famille": "valeur",
+    "texte_court": "Chaque personne agit dans son intérêt propre, maximisant son utilité individuelle. Les systèmes sociaux émergent de ces interactions atomisées.",
+    "texte_complet": "L'individu est vu comme une unité autonome dont la somme forme la société. Cette vision masque les interdépendances profondes et légitime la compétition comme mode d'organisation principale.",
+    "carte_opposee": "lot7-3",
+    "position_fresque": { "x": 500, "y": 200 }
+  },
+  {
+    "id": "lot6-4",
+    "lot": 6,
+    "titre": "La pensée analytique permet la maîtrise du monde",
+    "paradigme": "A",
+    "famille": "production",
+    "texte_court": "En décomposant les problèmes et en optimisant chaque partie, on peut contrôler et optimiser le tout.",
+    "texte_complet": "La pensée analytique réductrice génère l'optimisation sectorielle au détriment des systèmes complexes. Elle produit des solutions techniques efficaces mais fragiles, ignorant les effets systémiques et les rétroactions.",
+    "carte_opposee": "lot7-4",
+    "position_fresque": { "x": 700, "y": 200 }
+  },
+  {
+    "id": "lot6-5",
+    "lot": 6,
+    "titre": "Le monde s'organise en pyramides hiérarchiques",
+    "paradigme": "A",
+    "famille": "organisation",
+    "texte_court": "Les sociétés et organisations naturellement efficaces ont une structure pyramidale avec des décideurs au sommet et des exécutants à la base.",
+    "texte_complet": "Cette croyance naturalise les hiérarchies de pouvoir et légitime la concentration de la décision. Elle empêche de voir les formes d'auto-organisation et de gouvernance distribuée comme viables.",
+    "carte_opposee": "lot7-5",
+    "position_fresque": { "x": 900, "y": 200 }
+  },
+  {
+    "id": "lot6-6",
+    "lot": 6,
+    "titre": "La propriété privée est un droit fondamental",
+    "paradigme": "A",
+    "famille": "echanges",
+    "texte_court": "Posséder des biens en propre est le fondement de la liberté individuelle et le moteur de l'économie.",
+    "texte_complet": "La propriété privée génère la logique marchande : tout s'achète, tout se vend. Elle rend invisibles les communs et les biens collectifs. Elle légitime l'exclusion de ceux qui ne peuvent pas payer l'accès aux ressources fondamentales.",
+    "carte_opposee": "lot7-6",
+    "position_fresque": { "x": 1100, "y": 200 }
+  }
+]

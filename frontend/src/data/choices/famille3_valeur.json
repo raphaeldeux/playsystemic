@@ -1,0 +1,39 @@
+[
+  {
+    "id": "choice_valeur_mesure",
+    "famille": "valeur",
+    "ordre": 1,
+    "question": "Un gouvernement national doit décider comment mesurer la prospérité du pays et orienter ses politiques publiques.",
+    "contexte": "Le PIB est en hausse de 2%, mais les inégalités augmentent, la santé mentale se dégrade et la biodiversité s'effondre. Des économistes proposent d'adopter des indicateurs alternatifs. Le ministère des Finances résiste.",
+    "choix_A": {
+      "label": "Maintenir le PIB comme indicateur central de la prospérité",
+      "croyance_id": "lot6-3",
+      "effets": [
+        { "indicatorId": "equity", "delta": -0.07, "delayYears": 3 },
+        { "indicatorId": "trust", "delta": -0.05, "delayYears": 5 },
+        { "indicatorId": "wellbeing", "delta": -0.04, "delayYears": 4 }
+      ],
+      "feedback": "Le PIB croît en comptabilisant les catastrophes naturelles et les dépenses de santé comme des 'gains'. Les politiques restent orientées vers l'accumulation de capital financier. Les inégalités s'approfondissent car le PIB masque leur réalité. Boucle renforçante : mesure erronée → mauvaises priorités → dégradations → besoin de réparer → PIB en hausse."
+    },
+    "choix_B": {
+      "label": "Ajouter des indicateurs de bien-être comme indicateurs complémentaires au PIB",
+      "effets": [
+        { "indicatorId": "wellbeing", "delta": 0.03, "delayYears": 3 },
+        { "indicatorId": "equity", "delta": 0.02, "delayYears": 4 }
+      ],
+      "feedback": "Une amélioration de la visibilité, mais le PIB reste dominateur dans les arbitrages budgétaires. Les indicateurs de bien-être sont consultés mais rarement prioritaires. La transition reste incomplète sans changement du système de valeur sous-jacent."
+    },
+    "choix_C": {
+      "label": "Adopter des indicateurs intégrés socio-écologiques comme boussole principale",
+      "croyance_requise": "lot7-3",
+      "carte_fresque": "lot8-3",
+      "effets": [
+        { "indicatorId": "equity", "delta": 0.14, "delayYears": 6 },
+        { "indicatorId": "trust", "delta": 0.10, "delayYears": 5 },
+        { "indicatorId": "wellbeing", "delta": 0.12, "delayYears": 7 },
+        { "indicatorId": "agency", "delta": 0.08, "delayYears": 4 }
+      ],
+      "feedback": "Redéfinir ce qui compte change ce que le système produit. Les politiques commencent à prioriser la santé socio-écologique. Délai : 5-10 ans pour que le changement de boussole se traduise dans les institutions et les comportements. Synergie avec Famille 1 (Besoins) si elle aussi en Choix C."
+    }
+  }
+]

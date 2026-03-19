@@ -1,0 +1,39 @@
+[
+  {
+    "id": "choice_organisation_gouvernance",
+    "famille": "organisation",
+    "ordre": 1,
+    "question": "Une grande coopérative agricole de 500 membres doit décider de son mode de gouvernance pour les 10 prochaines années.",
+    "contexte": "La coopérative est en crise : les décisions prises au sommet ne correspondent plus aux réalités du terrain. Des membres veulent plus de pouvoir. Le conseil d'administration craint de perdre le contrôle.",
+    "choix_A": {
+      "label": "Maintenir la hiérarchie pyramidale avec un conseil d'administration décisionnel",
+      "croyance_id": "lot6-5",
+      "effets": [
+        { "indicatorId": "equity", "delta": -0.06, "delayYears": 2 },
+        { "indicatorId": "agency", "delta": -0.08, "delayYears": 3 },
+        { "indicatorId": "trust", "delta": -0.07, "delayYears": 4 }
+      ],
+      "feedback": "La hiérarchie pyramidale concentre le pouvoir et les informations au sommet. Les membres du bas de l'échelle se désengagent. La coopérative perd sa capacité d'adaptation aux crises locales. Boucle renforçante : concentration du pouvoir → désengagement → moins d'innovation → décisions top-down de pire qualité."
+    },
+    "choix_B": {
+      "label": "Créer des comités consultatifs sans pouvoir décisionnel réel",
+      "effets": [
+        { "indicatorId": "agency", "delta": 0.02, "delayYears": 2 },
+        { "indicatorId": "trust", "delta": 0.02, "delayYears": 2 }
+      ],
+      "feedback": "Les comités consultatifs donnent l'illusion de la participation sans le pouvoir réel. Les membres s'en rendent compte rapidement. La frustration peut être pire qu'avant. Sans changement de paradigme sur qui détient le pouvoir décisionnel, la réforme reste cosmétique."
+    },
+    "choix_C": {
+      "label": "Adopter une gouvernance distribuée et partagée avec des cercles d'autorité",
+      "croyance_requise": "lot7-5",
+      "carte_fresque": "lot8-5",
+      "effets": [
+        { "indicatorId": "agency", "delta": 0.18, "delayYears": 4 },
+        { "indicatorId": "trust", "delta": 0.14, "delayYears": 3 },
+        { "indicatorId": "equity", "delta": 0.12, "delayYears": 5 },
+        { "indicatorId": "resilience", "delta": 0.10, "delayYears": 6 }
+      ],
+      "feedback": "La gouvernance distribuée active l'intelligence collective. Délai : 3-5 ans pour que les nouvelles pratiques s'ancrent. Court terme : apparent désordre et lenteur des décisions. Long terme : résilience supérieure, meilleure adaptation locale, capacité d'innovation décuplée. L'organisation en réseau d'interdépendances se substitue à la pyramide."
+    }
+  }
+]
