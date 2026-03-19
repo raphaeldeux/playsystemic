@@ -55,7 +55,7 @@ export default function Act5_MyRole({ onComplete }: Props) {
       <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="flex flex-col gap-5">
         <div className="text-center py-2">
           <div className="text-5xl mb-3">🌍</div>
-          <div className="text-xs font-bold uppercase tracking-widest text-blue-400 mb-1">Bilan final</div>
+          <div className="text-xs font-bold uppercase tracking-widest text-blue-400 mb-1">Bilan — Val-Florès 2025–2125</div>
           <h2 className="text-2xl font-black text-white">Votre trajectoire systémique</h2>
         </div>
 
@@ -126,12 +126,12 @@ export default function Act5_MyRole({ onComplete }: Props) {
         <div className="rounded-2xl bg-slate-800/50 border border-slate-700/40 p-4">
           <p className="text-xs font-bold uppercase tracking-wide text-slate-500 mb-2">Récit de votre session</p>
           <p className="text-sm text-slate-300 leading-relaxed">
-            {nbC} choix régénératifs · {nbB} réformes · {nbA} maintiens du Système A.
+            Val-Florès : {nbC} décisions régénératives · {nbB} réformes · {nbA} maintiens du Système A.
             {nbC >= 4
-              ? " Votre trajectoire dessine une transition systémique significative. Les boucles équilibrantes activées produiront leurs effets sur le long terme."
+              ? " La Florès retrouve ses zones humides. Les maisons de santé rouvrent. Le Collectif Transition entre dans la gouvernance. Val-Florès en 2125 : un territoire qui a fait le choix de la régénération — lentement, avec résistances, mais durablement."
               : nbC >= 2
-              ? " Transition partielle engagée. Les réformes ralentissent la dégradation sans l'inverser. Chaque famille basculée en C amplifie l'effet des autres."
-              : " La trajectoire reste majoritairement Système A. Les émergences dégénératives en sont la conséquence logique. Le changement commence par les croyances."
+              ? " Val-Florès est dans un entre-deux. Les réformes ralentissent la dégradation sans l'inverser. La Chambre de Commerce reste dominante sur les 3 familles non basculées. La transition est possible — elle attend les décisions manquantes."
+              : " Val-Florès suit la logique du Système A jusqu'au bout. La Florès s'assèche, le foncier explose, la désertification médicale s'installe. Ce n'est pas la faute d'acteurs malveillants — c'est l'émergence logique de croyances non remises en question."
             }
           </p>
         </div>
@@ -148,15 +148,19 @@ export default function Act5_MyRole({ onComplete }: Props) {
   return (
     <div className="flex flex-col gap-5">
       <motion.div initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }}>
-        <div className="text-xs font-bold uppercase tracking-widest text-blue-400 mb-1">Acte 5</div>
+        <div className="text-xs font-bold uppercase tracking-widest text-blue-400 mb-1">Acte 5 — Au-delà de Val-Florès</div>
         <h2 className="text-2xl font-black text-white mb-2">Mon rôle dans la transition</h2>
-        <p className="text-slate-400 text-sm">Quel est votre rôle dans ce mouvement de transition ?</p>
+        <p className="text-slate-400 text-sm leading-relaxed">
+          Val-Florès était un territoire fictif — mais ses dynamiques existent partout. Quel rôle jouez-vous dans la transition systémique réelle ?
+        </p>
       </motion.div>
 
       {/* Berkana */}
       <div className="rounded-2xl bg-slate-800/40 border border-slate-700/40 p-4">
         <p className="text-xs font-bold uppercase tracking-wide text-slate-500 mb-1">Double boucle de l'Institut Berkana</p>
-        <p className="text-sm text-slate-400 mb-4">4 rôles pour faire grandir les initiatives régénératives.</p>
+        <p className="text-sm text-slate-400 mb-4">
+          Comme dans la simulation Val-Florès, les transitions ne se font pas seules : 4 rôles permettent de faire grandir ce qui émerge.
+        </p>
         <div className="grid grid-cols-2 gap-2">
           {BERKANA_ROLES.map(role => {
             const isSelected = selectedRole === role.id;

@@ -35,9 +35,11 @@ export default function Act4_SystemB({ onComplete }: Props) {
     <div className="flex flex-col gap-5">
       {/* Header */}
       <motion.div initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }}>
-        <div className="text-xs font-bold uppercase tracking-widest text-emerald-400 mb-1">Acte 4</div>
-        <h2 className="text-2xl font-black text-white mb-2">Construire le Système B</h2>
-        <p className="text-slate-400 text-sm">Croyances → Règles → Pratiques régénératives.</p>
+        <div className="text-xs font-bold uppercase tracking-widest text-emerald-400 mb-1">Acte 4 — Val-Florès Système B</div>
+        <h2 className="text-2xl font-black text-white mb-2">Construire la transition</h2>
+        <p className="text-slate-400 text-sm leading-relaxed">
+          Vos décisions ont changé les règles à Val-Florès. Maintenant, intégrez les croyances qui les rendent durables — et activez les pratiques régénératives concrètes pour le territoire.
+        </p>
       </motion.div>
 
       {/* Step tabs */}
@@ -71,7 +73,7 @@ export default function Act4_SystemB({ onComplete }: Props) {
             className="flex flex-col gap-3"
           >
             <p className="text-sm text-slate-400 leading-relaxed">
-              Intégrez les croyances actualisées du Système B. Elles déverrouilleront le plein effet des pratiques régénératives.
+              Intégrez les croyances actualisées du Système B pour Val-Florès. Sans elles, les pratiques régénératives que vous activez auront deux fois moins d'effet — les règles changent, mais la logique profonde reste celle du Système A.
             </p>
             {croyancesB.map(belief => {
               const isActive = activeBeliefs.includes(belief.id);

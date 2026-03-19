@@ -1,39 +1,39 @@
 [
   {
-    "id": "choice_valeur_mesure",
+    "id": "choice_valeur_1",
     "famille": "valeur",
     "ordre": 1,
-    "question": "Un gouvernement national doit décider comment mesurer la prospérité du pays et orienter ses politiques publiques.",
-    "contexte": "Le PIB est en hausse de 2%, mais les inégalités augmentent, la santé mentale se dégrade et la biodiversité s'effondre. Des économistes proposent d'adopter des indicateurs alternatifs. Le ministère des Finances résiste.",
+    "contexte": "Chaque année, le rapport annuel de la CA Val-Florès s'ouvre sur le même chiffre : la valeur ajoutée brute locale. Les 18 maires comparent entre eux leurs zones d'activité. La Chambre de Commerce lobby pour un 'indice de compétitivité territoriale' afin d'attirer des entreprises. Mais une étude commandée par le Conseil Départemental révèle que Val-Florès figure parmi les 20 % des territoires les plus inégalitaires de la région, et que l'espérance de vie en bonne santé y a reculé de 1,2 an depuis 2015. Le Collectif Transition propose d'adopter un Tableau de Bord Territorial (TBT) intégrant santé, lien social, empreinte carbone et résilience alimentaire.",
+    "question": "Par quels indicateurs Val-Florès mesure-t-elle sa prospérité et oriente ses choix d'investissement ?",
     "choix_A": {
-      "label": "Maintenir le PIB comme indicateur central de la prospérité",
+      "label": "Maintenir le PIB local et la valeur ajoutée brute comme boussole principale",
       "croyance_id": "lot6-3",
       "effets": [
-        { "indicatorId": "equity", "delta": -0.07, "delayYears": 3 },
-        { "indicatorId": "trust", "delta": -0.05, "delayYears": 5 },
-        { "indicatorId": "wellbeing", "delta": -0.04, "delayYears": 4 }
+        { "indicatorId": "equity", "delta": -0.08, "delayYears": 5 },
+        { "indicatorId": "trust", "delta": -0.07, "delayYears": 6 },
+        { "indicatorId": "wellbeing", "delta": -0.05, "delayYears": 8 }
       ],
-      "feedback": "Le PIB croît en comptabilisant les catastrophes naturelles et les dépenses de santé comme des 'gains'. Les politiques restent orientées vers l'accumulation de capital financier. Les inégalités s'approfondissent car le PIB masque leur réalité. Boucle renforçante : mesure erronée → mauvaises priorités → dégradations → besoin de réparer → PIB en hausse."
+      "feedback": "La valeur ajoutée progresse de 3 % par an. Mais les indicateurs invisibles se dégradent silencieusement : les inégalités creusent un écart de 12 ans d'espérance de vie entre les quartiers nord et sud de Floresville. La défiance envers les institutions progresse à chaque enquête de satisfaction. En 2032, le Conseil Communautaire est incapable d'expliquer pourquoi le territoire 'réussit économiquement' mais perd des habitants au profit d'autres agglomérations. Ce qu'on ne mesure pas, on ne le gère pas."
     },
     "choix_B": {
-      "label": "Ajouter des indicateurs de bien-être comme indicateurs complémentaires au PIB",
+      "label": "Ajouter quelques indicateurs complémentaires (emploi, logement) tout en gardant le PIB dominant",
       "effets": [
-        { "indicatorId": "wellbeing", "delta": 0.03, "delayYears": 3 },
-        { "indicatorId": "equity", "delta": 0.02, "delayYears": 4 }
+        { "indicatorId": "equity", "delta": 0.03, "delayYears": 4 },
+        { "indicatorId": "trust", "delta": 0.02, "delayYears": 3 }
       ],
-      "feedback": "Une amélioration de la visibilité, mais le PIB reste dominateur dans les arbitrages budgétaires. Les indicateurs de bien-être sont consultés mais rarement prioritaires. La transition reste incomplète sans changement du système de valeur sous-jacent."
+      "feedback": "Un 'tableau de bord enrichi' est publié chaque année. Mais quand les arbitrages budgétaires arrivent, le PIB local reprend toujours le dessus — les données sociales et écologiques n'ont pas le même poids politique. Un effort cosmétique qui ne change pas les mécanismes de décision réels."
     },
     "choix_C": {
-      "label": "Adopter des indicateurs intégrés socio-écologiques comme boussole principale",
+      "label": "Adopter le Tableau de Bord Territorial comme outil officiel de pilotage et de délibération",
       "croyance_requise": "lot7-3",
       "carte_fresque": "lot8-3",
       "effets": [
-        { "indicatorId": "equity", "delta": 0.14, "delayYears": 6 },
-        { "indicatorId": "trust", "delta": 0.10, "delayYears": 5 },
-        { "indicatorId": "wellbeing", "delta": 0.12, "delayYears": 7 },
+        { "indicatorId": "equity", "delta": 0.13, "delayYears": 6 },
+        { "indicatorId": "trust", "delta": 0.11, "delayYears": 5 },
+        { "indicatorId": "wellbeing", "delta": 0.10, "delayYears": 7 },
         { "indicatorId": "agency", "delta": 0.08, "delayYears": 4 }
       ],
-      "feedback": "Redéfinir ce qui compte change ce que le système produit. Les politiques commencent à prioriser la santé socio-écologique. Délai : 5-10 ans pour que le changement de boussole se traduise dans les institutions et les comportements. Synergie avec Famille 1 (Besoins) si elle aussi en Choix C."
+      "feedback": "La Chambre de Commerce proteste : 'Vous allez faire fuir les entreprises avec vos indicateurs idéologiques'. Mais trois mois après l'adoption, le premier Conseil Communautaire avec le TBT révèle que la famille 'lien social' est catastrophique dans 6 communes rurales. Des investissements ciblés sont décidés. En 2028, la confiance institutionnelle progresse de 14 points dans les enquêtes. Val-Florès est citée en exemple national par l'Observatoire des Territoires. Les décisions d'investissement deviennent lisibles, contestables, légitimes."
     }
   }
 ]

@@ -1,39 +1,40 @@
 [
   {
-    "id": "choice_organisation_gouvernance",
+    "id": "choice_organisation_1",
     "famille": "organisation",
     "ordre": 1,
-    "question": "Une grande coopérative agricole de 500 membres doit décider de son mode de gouvernance pour les 10 prochaines années.",
-    "contexte": "La coopérative est en crise : les décisions prises au sommet ne correspondent plus aux réalités du terrain. Des membres veulent plus de pouvoir. Le conseil d'administration craint de perdre le contrôle.",
+    "contexte": "Le fonctionnement de la CA Val-Florès est très présidentiel : le Bureau des 18 maires décide, les services exécutent, les habitant·es consultent les comptes-rendus en ligne. Le taux de participation aux dernières élections communautaires était de 31 %. Une étude interne révèle que 67 % des agents des services se disent 'peu écoutés sur les questions opérationnelles'. Le Collectif Transition propose deux options : un Conseil de Développement consultatif (format classique) ou une gouvernance par 'Cercles de compétence' avec délégation réelle aux équipes et aux citoyens sur des sujets définis.",
+    "question": "Comment Val-Florès se gouverne-t-elle pour les 20 prochaines années ?",
     "choix_A": {
-      "label": "Maintenir la hiérarchie pyramidale avec un conseil d'administration décisionnel",
+      "label": "Conserver la gouvernance présidentielle : efficacité décisionnelle et responsabilité élue",
       "croyance_id": "lot6-5",
       "effets": [
-        { "indicatorId": "equity", "delta": -0.06, "delayYears": 2 },
-        { "indicatorId": "agency", "delta": -0.08, "delayYears": 3 },
-        { "indicatorId": "trust", "delta": -0.07, "delayYears": 4 }
+        { "indicatorId": "agency", "delta": -0.09, "delayYears": 4 },
+        { "indicatorId": "trust", "delta": -0.08, "delayYears": 5 },
+        { "indicatorId": "equity", "delta": -0.05, "delayYears": 7 },
+        { "indicatorId": "resilience", "delta": -0.04, "delayYears": 9 }
       ],
-      "feedback": "La hiérarchie pyramidale concentre le pouvoir et les informations au sommet. Les membres du bas de l'échelle se désengagent. La coopérative perd sa capacité d'adaptation aux crises locales. Boucle renforçante : concentration du pouvoir → désengagement → moins d'innovation → décisions top-down de pire qualité."
+      "feedback": "Le fonctionnement reste inchangé. À court terme, les décisions sont effectivement rapides. Mais la défiance progresse : en 2029, une pétition de 4 200 habitant·es réclame une 'vraie démocratie intercommunale'. Le turn-over des services explose — 22 % en 2031. Plusieurs projets structurants échouent faute d'adhésion locale. Les 18 maires se reprochent mutuellement les mauvais résultats. La CA Val-Florès fonctionne comme une machine — efficace tant qu'elle est bien huilée, fragile dès que le contexte change."
     },
     "choix_B": {
-      "label": "Créer des comités consultatifs sans pouvoir décisionnel réel",
+      "label": "Créer un Conseil de Développement consultatif : société civile et experts associés",
       "effets": [
-        { "indicatorId": "agency", "delta": 0.02, "delayYears": 2 },
-        { "indicatorId": "trust", "delta": 0.02, "delayYears": 2 }
+        { "indicatorId": "agency", "delta": 0.03, "delayYears": 3 },
+        { "indicatorId": "trust", "delta": 0.02, "delayYears": 4 }
       ],
-      "feedback": "Les comités consultatifs donnent l'illusion de la participation sans le pouvoir réel. Les membres s'en rendent compte rapidement. La frustration peut être pire qu'avant. Sans changement de paradigme sur qui détient le pouvoir décisionnel, la réforme reste cosmétique."
+      "feedback": "Le Conseil de Développement se réunit 4 fois par an. Ses avis sont 'pris en compte'. En pratique, les décisions sont déjà prises en Bureau quand les avis arrivent. Les membres du Conseil s'en plaignent ouvertement lors de la 3e réunion. Un dispositif de participation qui n'a pas le pouvoir de changer les décisions ne crée pas de confiance — il crée de la frustration supplémentaire."
     },
     "choix_C": {
-      "label": "Adopter une gouvernance distribuée et partagée avec des cercles d'autorité",
+      "label": "Passer à une gouvernance distribuée : cercles de compétence avec délégation réelle aux équipes et aux citoyens",
       "croyance_requise": "lot7-5",
       "carte_fresque": "lot8-5",
       "effets": [
         { "indicatorId": "agency", "delta": 0.18, "delayYears": 4 },
-        { "indicatorId": "trust", "delta": 0.14, "delayYears": 3 },
-        { "indicatorId": "equity", "delta": 0.12, "delayYears": 5 },
-        { "indicatorId": "resilience", "delta": 0.10, "delayYears": 6 }
+        { "indicatorId": "trust", "delta": 0.15, "delayYears": 3 },
+        { "indicatorId": "equity", "delta": 0.10, "delayYears": 6 },
+        { "indicatorId": "resilience", "delta": 0.09, "delayYears": 5 }
       ],
-      "feedback": "La gouvernance distribuée active l'intelligence collective. Délai : 3-5 ans pour que les nouvelles pratiques s'ancrent. Court terme : apparent désordre et lenteur des décisions. Long terme : résilience supérieure, meilleure adaptation locale, capacité d'innovation décuplée. L'organisation en réseau d'interdépendances se substitue à la pyramide."
+      "feedback": "La transition est difficile la première année : plusieurs maires craignent de 'perdre le contrôle'. Trois cercles pilotes (eau, mobilité, alimentation) démarrent avec des équipes mixtes élus/agents/citoyens. En 2028, le cercle Alimentation co-construit le PAT avec les maraîchers sans passer par le Bureau — 6 mois de délai économisés. Le taux de participation aux consultations passe de 12 % à 41 %. En 2031, Val-Florès est citée comme modèle de gouvernance locale par le CNFPT. Le turn-over des services descend à 6 %."
     }
   }
 ]

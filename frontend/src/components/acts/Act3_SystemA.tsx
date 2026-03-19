@@ -12,12 +12,54 @@ import choicesEchanges from '../../data/choices/famille6_echanges.json';
 import croyancesA from '../../data/cards/lot6_croyances_A.json';
 
 const ALL_CHOICES = [
-  { famille: 'besoins', data: choicesBesoins, label: 'Besoins', question: 'À quels besoins répondons-nous ?' },
-  { famille: 'ressources', data: choicesRessources, label: 'Ressources', question: 'Quelles ressources mobilisons-nous ?' },
-  { famille: 'valeur', data: choicesValeur, label: 'Valeur', question: 'Quelle valeur créons-nous ?' },
-  { famille: 'production', data: choicesProduction, label: 'Production', question: 'Comment produisons-nous ?' },
-  { famille: 'organisation', data: choicesOrganisation, label: 'Organisation', question: 'Comment nous organisons-nous ?' },
-  { famille: 'echanges', data: choicesEchanges, label: 'Échanges', question: 'Comment échangeons-nous ?' },
+  {
+    famille: 'besoins',
+    data: choicesBesoins,
+    label: 'Besoins',
+    icon: '🏥',
+    competence: 'Investissement public · Services à la population',
+    question: 'Retail park ou maisons de santé ?',
+  },
+  {
+    famille: 'ressources',
+    data: choicesRessources,
+    label: 'Ressources',
+    icon: '💧',
+    competence: 'GEMAPI · Eau potable · Assainissement',
+    question: 'Forage ou restauration des zones humides ?',
+  },
+  {
+    famille: 'valeur',
+    data: choicesValeur,
+    label: 'Valeur',
+    icon: '📊',
+    competence: 'Développement économique · Indicateurs de pilotage',
+    question: 'PIB local ou Tableau de Bord Territorial ?',
+  },
+  {
+    famille: 'production',
+    data: choicesProduction,
+    label: 'Production',
+    icon: '🌾',
+    competence: 'ZAE · Politique économique locale · PAT',
+    question: 'Plateforme logistique ou Pôle Alimentaire Territorial ?',
+  },
+  {
+    famille: 'organisation',
+    data: choicesOrganisation,
+    label: 'Organisation',
+    icon: '🏛',
+    competence: 'Gouvernance intercommunale · Démocratie locale',
+    question: 'Gouvernance présidentielle ou cercles distribués ?',
+  },
+  {
+    famille: 'echanges',
+    data: choicesEchanges,
+    label: 'Échanges',
+    icon: '🏠',
+    competence: 'Habitat · PLH · Foncier',
+    question: 'Marché libre ou communs fonciers ?',
+  },
 ];
 
 type Props = { onComplete: () => void };
@@ -42,21 +84,20 @@ export default function Act3_SystemA({ onComplete }: Props) {
     return (
       <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="flex flex-col gap-6">
         <div className="text-center py-4">
-          <div className="text-5xl mb-4">🤔</div>
+          <div className="text-5xl mb-4">⏸</div>
           <div className="text-xs font-bold uppercase tracking-widest text-slate-500 mb-2">Pause — mi-parcours</div>
-          <h3 className="text-xl font-black text-white mb-4">Intégration émotionnelle</h3>
+          <h3 className="text-xl font-black text-white mb-4">Que ressentez-vous ?</h3>
         </div>
         <div className="rounded-2xl bg-slate-800/60 border border-slate-700/50 p-5">
           <p className="text-slate-300 leading-relaxed mb-4">
-            Vous avez exploré les 3 premières familles de règles du Système A.
+            Vous venez de prendre les 3 premières décisions pour Val-Florès. Investissements, eau, indicateurs de valeur.
           </p>
-          <p className="text-lg font-semibold text-amber-300 italic text-center py-2">
-            "Que ressentez-vous face à ces règles et croyances ?"
+          <p className="text-lg font-semibold text-amber-300 italic text-center py-3">
+            "Face aux acteurs réels, aux pressions, aux contraintes budgétaires — qu'avez-vous ressenti ?"
           </p>
           <p className="text-slate-400 text-sm mt-4 leading-relaxed">
-            Frustration, colère, résignation, curiosité ? Toutes ces réponses sont valides.
-            La pensée systémique n'efface pas les émotions — elle aide à les comprendre.
-            Ces règles ont été construites, et elles peuvent être reconstruites.
+            Frustration face aux résistances ? Tentation du compromis ? Soulagement de choisir C ? Inquiétude face aux délais ?
+            Ces émotions sont des données systémiques. Elles révèlent les forces qui maintiennent le Système A en place — et celles qui peuvent l'en faire sortir.
           </p>
         </div>
         <button
@@ -73,10 +114,10 @@ export default function Act3_SystemA({ onComplete }: Props) {
     <div className="flex flex-col gap-5">
       {/* Header */}
       <motion.div initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }}>
-        <div className="text-xs font-bold uppercase tracking-widest text-red-400 mb-1">Acte 3</div>
-        <h2 className="text-2xl font-black text-white mb-2">Déconstruire le Système A</h2>
+        <div className="text-xs font-bold uppercase tracking-widest text-red-400 mb-1">Acte 3 — Les 6 décisions</div>
+        <h2 className="text-2xl font-black text-white mb-1">Quelle trajectoire pour Val-Florès ?</h2>
         <p className="text-slate-400 text-sm">
-          6 familles de règles, 3 choix chacune. Observez les effets sur les indicateurs.
+          6 compétences de votre CA. 3 options à chaque fois. Les effets se voient dans les courbes.
         </p>
       </motion.div>
 
@@ -88,12 +129,12 @@ export default function Act3_SystemA({ onComplete }: Props) {
           return (
             <div key={f.famille} className="flex-1 flex flex-col gap-1">
               <div className={`h-1 rounded-full transition-all duration-500 ${
-                isDone ? 'bg-red-600' : isCurrent ? 'bg-red-800' : 'bg-slate-800'
+                isDone ? 'bg-red-500' : isCurrent ? 'bg-red-800' : 'bg-slate-800'
               }`} />
               <span className={`text-center leading-tight transition-all ${
                 isCurrent ? 'text-red-400' : isDone ? 'text-slate-500' : 'text-slate-700'
               }`} style={{ fontSize: '0.6rem' }}>
-                {f.label}
+                {f.icon}
               </span>
             </div>
           );
@@ -112,10 +153,16 @@ export default function Act3_SystemA({ onComplete }: Props) {
         >
           {/* Family header */}
           <div className="rounded-2xl bg-red-950/20 border border-red-900/30 px-4 py-3">
-            <div className="text-xs text-red-400 font-bold uppercase tracking-wide mb-0.5">
-              Famille {idx + 1} — {current.label}
+            <div className="flex items-center gap-2 mb-0.5">
+              <span className="text-xl">{current.icon}</span>
+              <div>
+                <div className="text-xs text-red-400 font-bold uppercase tracking-wide">
+                  Famille {idx + 1} — {current.label}
+                </div>
+                <p className="text-xs text-slate-500">{current.competence}</p>
+              </div>
             </div>
-            <p className="text-slate-300 text-sm font-medium">{current.question}</p>
+            <p className="text-slate-200 text-sm font-semibold mt-2">{current.question}</p>
           </div>
 
           {/* Underlying belief */}
@@ -125,7 +172,7 @@ export default function Act3_SystemA({ onComplete }: Props) {
               <div>
                 <p className="text-xs text-slate-500 uppercase font-semibold mb-0.5">Croyance sous-jacente du Système A</p>
                 <p className="text-sm font-semibold text-red-300 italic">"{croyanceA.titre}"</p>
-                <p className="text-xs text-slate-400 mt-1">{croyanceA.texte_court}</p>
+                <p className="text-xs text-slate-400 mt-1 leading-snug">{croyanceA.texte_court}</p>
               </div>
             </div>
           )}
@@ -138,7 +185,7 @@ export default function Act3_SystemA({ onComplete }: Props) {
       </AnimatePresence>
 
       {completedCount > 0 && (
-        <p className="text-xs text-slate-600 text-center">{completedCount}/{ALL_CHOICES.length} familles explorées</p>
+        <p className="text-xs text-slate-600 text-center">{completedCount}/{ALL_CHOICES.length} décisions prises · Observez les courbes →</p>
       )}
     </div>
   );

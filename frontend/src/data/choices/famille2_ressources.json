@@ -1,38 +1,40 @@
 [
   {
-    "id": "choice_ressources_eau",
+    "id": "choice_ressources_1",
     "famille": "ressources",
     "ordre": 1,
-    "question": "Vous dirigez la politique économique d'une région en forte croissance. L'industrie réclame davantage d'eau pour ses processus de production.",
-    "contexte": "La région connaît une croissance économique soutenue. La chambre de commerce demande de nouveaux forages et barrages pour répondre aux besoins industriels. Les zones humides locales sont déjà en mauvais état.",
+    "contexte": "La Florès — rivière qui traverse les 18 communes — est en déficit hydrique chronique : étiages records depuis 7 ans, deux espèces de poissons disparues, restrictions d'usage chaque été. La Chambre d'Agriculture et deux coopératives agro-industrielles demandent un nouveau forage profond (18 M€) pour sécuriser l'irrigation. Le Syndicat des Rivières et le Collectif Transition Val-Florès proposent de restaurer les 12 zones humides asséchées depuis les années 1970 et de lancer un programme participatif de gestion GEMAPI avec les agriculteurs.",
+    "question": "La CA Val-Florès a la compétence GEMAPI (gestion des milieux aquatiques). Comment gérez-vous la ressource en eau du territoire ?",
     "choix_A": {
-      "label": "Capter davantage d'eau via de nouveaux barrages",
+      "label": "Autoriser le nouveau forage : sécuriser la production agricole industrielle maintenant",
       "croyance_id": "lot6-2",
       "effets": [
-        { "indicatorId": "ecosystems", "delta": -0.08, "delayYears": 2 },
-        { "indicatorId": "resources", "delta": -0.06, "delayYears": 5 },
+        { "indicatorId": "ecosystems", "delta": -0.10, "delayYears": 3 },
+        { "indicatorId": "resources", "delta": -0.08, "delayYears": 5 },
+        { "indicatorId": "resilience", "delta": -0.06, "delayYears": 7 },
         { "indicatorId": "climate", "delta": -0.04, "delayYears": 10 }
       ],
-      "feedback": "La production augmente à court terme. Mais les zones humides se dégradent, réduisant la capacité de rétention des sols. Dans 15 ans, les sécheresses seront plus fréquentes et plus sévères. Boucle renforçante activée : surextraction → dégradation écosystèmes → moins de services hydrologiques → plus de captage nécessaire."
+      "feedback": "Le forage est autorisé. Les premières années, l'irrigation est sécurisée. Mais la nappe phréatique décline plus rapidement : en 2031, trois communes voient leur eau potable rationnée. La Florès atteint l'assec complet en août 2033. Les coopératives agro-industrielles réclament... un deuxième forage. La boucle se referme : plus d'extraction → moins d'eau → plus d'extraction. Le Conseil Départemental suspend les financements pour 'mauvaise gestion territoriale'."
     },
     "choix_B": {
-      "label": "Instaurer des quotas de consommation d'eau par secteur",
+      "label": "Autoriser le forage sous conditions + quota d'eau et mesures compensatoires",
       "effets": [
-        { "indicatorId": "resources", "delta": -0.02, "delayYears": 1 }
+        { "indicatorId": "resources", "delta": 0.02, "delayYears": 5 },
+        { "indicatorId": "ecosystems", "delta": -0.03, "delayYears": 4 }
       ],
-      "feedback": "Les quotas ralentissent la dégradation mais ne s'attaquent pas à la croyance fondatrice. La pression économique fera lever les quotas d'ici 5-10 ans. C'est 'changer LE système', pas 'changer DE système'."
+      "feedback": "Le forage est accordé avec des quotas. Les quotas sont respectés les deux premières années, puis les sécheresses plus fréquentes poussent à des dérogations annuelles. Le syndicat des rivières alerte régulièrement sans être entendu. Les zones humides continuent de se dégrader. Une réforme incrémentale qui ralentit sans inverser la trajectoire de dégradation hydrique."
     },
     "choix_C": {
-      "label": "Engager une politique d'hydrologie régénérative",
+      "label": "Lancer le programme GEMAPI régénératif : restaurer les zones humides, contractualiser avec les agriculteurs",
       "croyance_requise": "lot7-2",
       "carte_fresque": "lot8-2",
       "effets": [
-        { "indicatorId": "ecosystems", "delta": 0.12, "delayYears": 15 },
-        { "indicatorId": "resources", "delta": 0.10, "delayYears": 10 },
-        { "indicatorId": "climate", "delta": 0.06, "delayYears": 20 },
-        { "indicatorId": "resilience", "delta": 0.08, "delayYears": 12 }
+        { "indicatorId": "ecosystems", "delta": 0.15, "delayYears": 12 },
+        { "indicatorId": "resources", "delta": 0.12, "delayYears": 15 },
+        { "indicatorId": "resilience", "delta": 0.10, "delayYears": 8 },
+        { "indicatorId": "climate", "delta": 0.08, "delayYears": 15 }
       ],
-      "feedback": "Les effets positifs seront visibles dans 10-20 ans. Court terme : baisse de productivité apparente. Long terme : +résilience hydrique, +biodiversité, boucle équilibrante activée. Condition : la croyance 'Terre finie' doit avoir été intégrée pour débloquer l'effet complet (sinon ×0.5)."
+      "feedback": "Les deux premières années sont difficiles : la Chambre d'Agriculture conteste, deux coopératives menacent de délocaliser. Mais 14 agriculteurs signent les contrats de transition agroécologique avec une prime de 850 €/ha. En 2030, les premières zones humides restaurées retiennent visiblement plus d'eau. En 2038, la Florès ne subit plus d'assec complet. La nappe phréatique se stabilise. Val-Florès devient territoire pilote du programme 'Eau vivante' de l'Agence de l'Eau. L'attractivité résidentielle augmente."
     }
   }
 ]

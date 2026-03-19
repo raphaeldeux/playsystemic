@@ -3,37 +3,38 @@
     "id": "choice_besoins_1",
     "famille": "besoins",
     "ordre": 1,
-    "question": "Une ville de 200 000 habitants doit réviser sa politique de développement économique pour les 20 prochaines années.",
-    "contexte": "Le conseil municipal est confronté à un choix fondamental : orienter les investissements publics vers quels types de besoins ? La chambre de commerce pousse pour des centres commerciaux et des zones de loisirs haut de gamme. Des associations citoyennes demandent de prioriser santé, éducation et logement abordable.",
+    "contexte": "La Chambre de Commerce de Val-Florès et un promoteur privé proposent d'investir 40 M€ dans un retail park de 35 000 m² à l'entrée de l'agglomération : enseignes nationales, multiplex, drive. Ils annoncent 2 000 emplois et une hausse de la taxe professionnelle. Le Collectif Transition Val-Florès réclame d'utiliser ces mêmes fonds pour 4 maisons de santé pluridisciplinaires, une crèche publique intercommunale, et un réseau de haltes éducatives dans les 18 communes.",
+    "question": "En tant que Président·e de la CA Val-Florès, quelle politique d'investissement portez-vous pour les 20 prochaines années ?",
     "choix_A": {
-      "label": "Investir prioritairement dans les infrastructures de loisirs et de consommation",
+      "label": "Soutenir le retail park : attractivité économique et emplois immédiats",
       "croyance_id": "lot6-1",
       "effets": [
-        { "indicatorId": "wellbeing", "delta": -0.08, "delayYears": 5 },
-        { "indicatorId": "resources", "delta": -0.06, "delayYears": 3 },
-        { "indicatorId": "equity", "delta": -0.05, "delayYears": 4 }
+        { "indicatorId": "wellbeing", "delta": -0.09, "delayYears": 6 },
+        { "indicatorId": "resources", "delta": -0.07, "delayYears": 3 },
+        { "indicatorId": "equity", "delta": -0.06, "delayYears": 5 },
+        { "indicatorId": "resilience", "delta": -0.04, "delayYears": 8 }
       ],
-      "feedback": "Les centres commerciaux génèrent une croissance à court terme, mais l'identité de la ville se réduit à sa capacité de consommation. Les inégalités se creusent entre ceux qui peuvent consommer et les autres. La croyance 'Avoir, c'est être' s'ancre dans les institutions locales. Dans 20 ans, le bien-être global stagne malgré l'abondance matérielle."
+      "feedback": "Le retail park s'installe. Trois commerces de proximité ferment en centre-ville de Floresville dans les 18 mois. Les emplois promis sont majoritairement à temps partiel et sous-payés. La taxe pro augmente effectivement — mais les dépenses de santé et d'aide sociale de la CA explosent dix ans plus tard, faute d'infrastructures de soins. La Chambre de Commerce célèbre un 'succès d'attractivité'. Le Collectif Transition baptise la zone 'désert sanitaire en béton'."
     },
     "choix_B": {
-      "label": "Répartir équitablement les investissements entre loisirs et services essentiels",
+      "label": "Négocier un compromis : retail park réduit + une maison de santé",
       "effets": [
-        { "indicatorId": "wellbeing", "delta": 0.02, "delayYears": 3 },
-        { "indicatorId": "equity", "delta": 0.01, "delayYears": 2 }
+        { "indicatorId": "wellbeing", "delta": 0.02, "delayYears": 4 },
+        { "indicatorId": "equity", "delta": 0.01, "delayYears": 3 }
       ],
-      "feedback": "Une approche équilibrée qui améliore légèrement la situation, mais le cadre 'Avoir = être' n'est pas remis en question. Les besoins fondamentaux restent sous-financés face aux pressions économiques. Les réformes incrementales ralentissent la dégradation sans inverser la tendance systémique."
+      "feedback": "La maison de santé ouvre à Floresville. Le retail park aussi — et capte l'essentiel du commerce local. Le compromis satisfait tout le monde à court terme. À 10 ans : les communes rurales sont toujours sans médecin, la maison de santé est débordée, et la grande surface a fragilisé l'alimentation locale. Un 'en même temps' qui ne règle pas la question structurelle : à quoi servent 40 M€ d'investissement public ?"
     },
     "choix_C": {
-      "label": "Réorienter l'économie locale vers la satisfaction des besoins fondamentaux",
+      "label": "Prioriser les besoins fondamentaux : santé, petite enfance, éducation sur tout le territoire",
       "croyance_requise": "lot7-1",
       "carte_fresque": "lot8-1",
       "effets": [
-        { "indicatorId": "wellbeing", "delta": 0.15, "delayYears": 8 },
-        { "indicatorId": "equity", "delta": 0.12, "delayYears": 5 },
+        { "indicatorId": "wellbeing", "delta": 0.16, "delayYears": 7 },
+        { "indicatorId": "equity", "delta": 0.13, "delayYears": 5 },
         { "indicatorId": "resilience", "delta": 0.10, "delayYears": 6 },
         { "indicatorId": "agency", "delta": 0.08, "delayYears": 4 }
       ],
-      "feedback": "Les effets positifs mettront 5-10 ans à se concrétiser. Court terme : certains acteurs économiques résistent. Long terme : la ville développe une économie du care et des communs, plus robuste et plus épanouissante. La croyance 'richesse ≠ possession' devient opérationnelle dans les politiques publiques. Boucle équilibrante activée : besoins satisfaits → moins de surproduction → ressources préservées."
+      "feedback": "La Chambre de Commerce crie à l'anti-économisme. Deux ans plus tard, les quatre maisons de santé recrutent 60 professionnels de santé qui s'installent dans les communes rurales. La crèche permet à 340 familles de retrouver un emploi. Val-Florès devient le seul territoire de la région à maintenir une offre médicale complète. En 2035, les entreprises citent la 'qualité de vie exceptionnelle' comme premier facteur d'installation. La croyance 'avoir = être' perd de son emprise sur les délibérations du Conseil Communautaire."
     }
   }
 ]

@@ -2,198 +2,197 @@
   {
     "id": "lot9-besoins-1",
     "lot": 9,
-    "titre": "Arbitrages des conflits d'usage selon besoins prioritaires",
+    "titre": "Plan Local de Santé intercommunal (PLS)",
     "paradigme": "B",
     "famille": "besoins",
-    "texte_court": "Établir des règles d'arbitrage qui privilégient les besoins fondamentaux (eau, alimentation, santé) sur les besoins de loisirs ou de luxe.",
-    "delayYears": 3,
+    "texte_court": "Déployer 4 maisons de santé pluridisciplinaires avec des contrats locaux d'installation pour médecins, infirmières et sages-femmes sur les 18 communes.",
+    "delayYears": 4,
     "effets_indicateurs": {
-      "equity": { "delta": 0.08, "delayYears": 3 },
-      "wellbeing": { "delta": 0.06, "delayYears": 4 },
-      "resources": { "delta": 0.04, "delayYears": 5 }
+      "wellbeing": { "delta": 0.10, "delayYears": 4 },
+      "equity": { "delta": 0.08, "delayYears": 4 },
+      "resilience": { "delta": 0.05, "delayYears": 6 }
     }
   },
   {
     "id": "lot9-besoins-2",
     "lot": 9,
-    "titre": "Régulation forte de la publicité",
+    "titre": "Service public de la petite enfance territorialisé",
     "paradigme": "B",
     "famille": "besoins",
-    "texte_court": "Limiter la publicité qui crée des besoins artificiels, notamment vers les enfants et dans l'espace public.",
-    "delayYears": 2,
+    "texte_court": "Créer 6 crèches intercommunales et un réseau de haltes éducatives itinérantes pour les communes rurales, avec tarification progressive selon revenus.",
+    "delayYears": 3,
     "effets_indicateurs": {
-      "wellbeing": { "delta": 0.05, "delayYears": 4 },
-      "resources": { "delta": 0.06, "delayYears": 5 },
-      "agency": { "delta": 0.04, "delayYears": 3 }
+      "equity": { "delta": 0.07, "delayYears": 3 },
+      "agency": { "delta": 0.05, "delayYears": 3 },
+      "wellbeing": { "delta": 0.06, "delayYears": 4 }
     }
   },
   {
     "id": "lot9-ressources-1",
     "lot": 9,
-    "titre": "Politiques de sobriété",
+    "titre": "Programme GEMAPI régénératif : restauration de 12 zones humides",
     "paradigme": "B",
     "famille": "ressources",
-    "texte_court": "Réduire la demande globale en ressources par des politiques publiques : normes de consommation, taxation, éducation.",
-    "delayYears": 4,
+    "texte_court": "Contrats agri-environnementaux avec 40 exploitations, restauration de ripisylves, création de retenues collinaires. Recharge naturelle de la nappe phréatique.",
+    "delayYears": 10,
     "effets_indicateurs": {
-      "resources": { "delta": 0.10, "delayYears": 5 },
-      "climate": { "delta": 0.08, "delayYears": 8 },
-      "ecosystems": { "delta": 0.06, "delayYears": 6 }
+      "ecosystems": { "delta": 0.14, "delayYears": 10 },
+      "resources": { "delta": 0.12, "delayYears": 12 },
+      "resilience": { "delta": 0.08, "delayYears": 8 }
     }
   },
   {
     "id": "lot9-ressources-2",
     "lot": 9,
-    "titre": "Énergies renouvelables en réseaux intelligents",
+    "titre": "Plan Air-Énergie-Climat territorial : 100 % renouvelables d'ici 2040",
     "paradigme": "B",
     "famille": "ressources",
-    "texte_court": "Déployer des énergies renouvelables dans des réseaux distribués et intelligents par biorégion.",
+    "texte_court": "Communauté d'énergie renouvelable (CER), toitures solaires sur bâtiments publics, réseau de chaleur bois-énergie local, plan de sobriété énergétique des services.",
     "delayYears": 5,
     "effets_indicateurs": {
       "climate": { "delta": 0.14, "delayYears": 5 },
-      "resources": { "delta": 0.12, "delayYears": 8 },
-      "resilience": { "delta": 0.08, "delayYears": 6 }
+      "resources": { "delta": 0.08, "delayYears": 6 },
+      "resilience": { "delta": 0.06, "delayYears": 7 }
     }
   },
   {
     "id": "lot9-ressources-3",
     "lot": 9,
-    "titre": "Agriculture régénérative et agroforesterie",
+    "titre": "Programme Alimentaire Territorial (PAT) : transition agroécologique",
     "paradigme": "B",
     "famille": "ressources",
-    "texte_court": "Restaurer les sols vivants par l'agroécologie, l'agroforesterie et l'arrêt des intrants chimiques.",
-    "delayYears": 10,
+    "texte_court": "Aides à la conversion bio, soutien à l'agroforesterie, création d'un fonds foncier agricole pour les jeunes agriculteurs. Objectif 50 % bio en restauration collective d'ici 2030.",
+    "delayYears": 8,
     "effets_indicateurs": {
-      "ecosystems": { "delta": 0.14, "delayYears": 10 },
-      "resources": { "delta": 0.10, "delayYears": 12 },
-      "climate": { "delta": 0.08, "delayYears": 20 },
-      "resilience": { "delta": 0.06, "delayYears": 8 }
+      "ecosystems": { "delta": 0.12, "delayYears": 8 },
+      "resources": { "delta": 0.10, "delayYears": 10 },
+      "wellbeing": { "delta": 0.06, "delayYears": 6 }
     }
   },
   {
     "id": "lot9-valeur-1",
     "lot": 9,
-    "titre": "Indicateurs intégrés socio-écologiques",
+    "titre": "Tableau de Bord Territorial (TBT) comme outil officiel de délibération",
     "paradigme": "B",
     "famille": "valeur",
-    "texte_court": "Remplacer le PIB par des tableaux de bord intégrés mesurant la santé des socio-écosystèmes.",
-    "delayYears": 3,
+    "texte_court": "8 indicateurs de bien-être, cohésion, santé écologique et résilience publiés chaque année, présentés en séance du Conseil Communautaire avant chaque vote budgétaire.",
+    "delayYears": 2,
     "effets_indicateurs": {
-      "equity": { "delta": 0.08, "delayYears": 4 },
-      "trust": { "delta": 0.06, "delayYears": 5 },
-      "wellbeing": { "delta": 0.07, "delayYears": 5 }
+      "trust": { "delta": 0.09, "delayYears": 2 },
+      "equity": { "delta": 0.07, "delayYears": 3 },
+      "agency": { "delta": 0.05, "delayYears": 3 }
     }
   },
   {
     "id": "lot9-valeur-2",
     "lot": 9,
-    "titre": "Justice redistributive et principes ESS",
+    "titre": "Pacte territorial pour l'ESS et la coopération économique",
     "paradigme": "B",
     "famille": "valeur",
-    "texte_court": "Développer l'économie sociale et solidaire : coopératives, mutuelles, associations à but non lucratif.",
-    "delayYears": 5,
+    "texte_court": "Fonds d'amorçage pour coopératives et SCIC locales, clause sociale dans les marchés publics, bourse d'échanges inter-entreprises (BEIE) pour mutualiser équipements et services.",
+    "delayYears": 4,
     "effets_indicateurs": {
-      "equity": { "delta": 0.12, "delayYears": 5 },
-      "agency": { "delta": 0.10, "delayYears": 4 },
-      "trust": { "delta": 0.08, "delayYears": 6 }
+      "equity": { "delta": 0.10, "delayYears": 4 },
+      "resilience": { "delta": 0.08, "delayYears": 5 },
+      "trust": { "delta": 0.06, "delayYears": 4 }
     }
   },
   {
     "id": "lot9-production-1",
     "lot": 9,
-    "titre": "Économie circulaire (réemploi, réparation, recyclage)",
+    "titre": "Pôle Alimentaire Territorial (PAT) : abattoir coopératif + légumerie + conserverie",
     "paradigme": "B",
     "famille": "production",
-    "texte_court": "Fermer les boucles de matières : réparer avant de jeter, réemployer avant de recycler, recycler avant d'extraire.",
+    "texte_court": "Structurer la filière alimentaire locale en aval avec des outils de transformation mutualisés. Approvisionnement garanti pour la restauration collective (12 000 repas/jour).",
     "delayYears": 5,
     "effets_indicateurs": {
-      "resources": { "delta": 0.12, "delayYears": 5 },
-      "ecosystems": { "delta": 0.08, "delayYears": 6 },
-      "climate": { "delta": 0.06, "delayYears": 8 }
+      "resilience": { "delta": 0.12, "delayYears": 5 },
+      "resources": { "delta": 0.09, "delayYears": 6 },
+      "equity": { "delta": 0.07, "delayYears": 5 }
     }
   },
   {
     "id": "lot9-production-2",
     "lot": 9,
-    "titre": "Low-tech et éco-conception bioinspirée",
+    "titre": "Plan économie circulaire : symbiose industrielle et ressourceries",
     "paradigme": "B",
     "famille": "production",
-    "texte_court": "Concevoir des technologies sobres, durables et réparables, inspirées des principes du vivant.",
-    "delayYears": 7,
+    "texte_court": "Cartographier les flux de matières de la ZAE, créer une plateforme d'échanges inter-entreprises, ouvrir 3 ressourceries territoriales. Objectif : -30 % déchets industriels d'ici 2030.",
+    "delayYears": 4,
     "effets_indicateurs": {
-      "resilience": { "delta": 0.10, "delayYears": 7 },
-      "resources": { "delta": 0.08, "delayYears": 6 },
-      "wellbeing": { "delta": 0.06, "delayYears": 8 }
+      "resources": { "delta": 0.11, "delayYears": 4 },
+      "resilience": { "delta": 0.08, "delayYears": 5 },
+      "ecosystems": { "delta": 0.06, "delayYears": 6 }
     }
   },
   {
     "id": "lot9-organisation-1",
     "lot": 9,
-    "titre": "Coopératives et gouvernance partagée",
+    "titre": "Convention Citoyenne territoriale permanente",
     "paradigme": "B",
     "famille": "organisation",
-    "texte_court": "Développer des structures à gouvernance partagée : coopératives de travailleurs, de consommateurs, mixtes.",
-    "delayYears": 3,
+    "texte_court": "Tirage au sort de 60 habitant·es représentatifs, mandatés pour 18 mois sur les grandes orientations territoriales. Avis contraignants sur les sujets qui leur sont délégués.",
+    "delayYears": 2,
     "effets_indicateurs": {
-      "equity": { "delta": 0.10, "delayYears": 3 },
-      "agency": { "delta": 0.12, "delayYears": 4 },
-      "trust": { "delta": 0.08, "delayYears": 5 }
+      "trust": { "delta": 0.13, "delayYears": 2 },
+      "agency": { "delta": 0.11, "delayYears": 2 },
+      "equity": { "delta": 0.06, "delayYears": 3 }
     }
   },
   {
     "id": "lot9-organisation-2",
     "lot": 9,
-    "titre": "Conventions citoyennes et démocratie délibérative",
+    "titre": "Gouvernance par Cercles de compétence avec délégation réelle",
     "paradigme": "B",
     "famille": "organisation",
-    "texte_court": "Associer les citoyens tirés au sort aux grandes décisions politiques pour dépasser les blocages démocratiques.",
-    "delayYears": 4,
+    "texte_court": "Restructurer les services de la CA en 6 cercles thématiques (eau, alimentation, mobilité, habitat, économie, social) avec budget propre et co-décision agents/élus/citoyens.",
+    "delayYears": 3,
     "effets_indicateurs": {
-      "trust": { "delta": 0.12, "delayYears": 4 },
-      "agency": { "delta": 0.10, "delayYears": 3 },
-      "equity": { "delta": 0.06, "delayYears": 5 }
+      "agency": { "delta": 0.14, "delayYears": 3 },
+      "trust": { "delta": 0.10, "delayYears": 3 },
+      "resilience": { "delta": 0.09, "delayYears": 4 }
     }
   },
   {
     "id": "lot9-echanges-1",
     "lot": 9,
-    "titre": "Communs numériques et licences libres",
+    "titre": "Fonds Foncier Territorial (FFT) : achats progressifs de foncier",
     "paradigme": "B",
     "famille": "echanges",
-    "texte_court": "Développer les biens communs de la connaissance : logiciels libres, données ouvertes, contenus sous Creative Commons.",
-    "delayYears": 2,
+    "texte_court": "La CA acquiert progressivement du foncier pour le céder en bail emphytéotique à des CLT, coopératives et bailleurs sociaux. Objectif : 500 logements abordables permanents d'ici 2035.",
+    "delayYears": 6,
     "effets_indicateurs": {
-      "agency": { "delta": 0.08, "delayYears": 2 },
-      "trust": { "delta": 0.06, "delayYears": 3 },
-      "equity": { "delta": 0.05, "delayYears": 4 }
+      "equity": { "delta": 0.13, "delayYears": 6 },
+      "wellbeing": { "delta": 0.10, "delayYears": 7 },
+      "resilience": { "delta": 0.08, "delayYears": 7 }
     }
   },
   {
     "id": "lot9-echanges-2",
     "lot": 9,
-    "titre": "Monnaies locales complémentaires",
+    "titre": "Monnaie locale complémentaire Val-Florès (MLF)",
     "paradigme": "B",
     "famille": "echanges",
-    "texte_court": "Créer des monnaies locales qui maintiennent la richesse dans les territoires et favorisent les échanges coopératifs.",
-    "delayYears": 8,
+    "texte_court": "Créer une monnaie locale complémentaire acceptée par les commerces locaux, les producteurs agricoles et les services de la CA pour les achats de proximité.",
+    "delayYears": 3,
     "effets_indicateurs": {
-      "trust": { "delta": 0.10, "delayYears": 8 },
-      "resilience": { "delta": 0.08, "delayYears": 7 },
-      "equity": { "delta": 0.06, "delayYears": 9 }
+      "trust": { "delta": 0.08, "delayYears": 3 },
+      "resilience": { "delta": 0.07, "delayYears": 4 },
+      "equity": { "delta": 0.05, "delayYears": 4 }
     }
   },
   {
     "id": "lot9-echanges-3",
     "lot": 9,
-    "titre": "Mutualisation et partage (outils, véhicules, espaces)",
+    "titre": "Plateforme de mutualisation et partage territorial",
     "paradigme": "B",
     "famille": "echanges",
-    "texte_court": "Organiser le partage des biens durables pour réduire la consommation globale et renforcer le lien social.",
-    "delayYears": 3,
+    "texte_court": "Plateforme numérique de partage d'outils, véhicules et espaces entre habitant·es, associations et collectivités. Intégration avec les ressourceries et l'offre de mobilité douce.",
+    "delayYears": 2,
     "effets_indicateurs": {
-      "resources": { "delta": 0.08, "delayYears": 4 },
-      "wellbeing": { "delta": 0.06, "delayYears": 3 },
-      "trust": { "delta": 0.05, "delayYears": 3 }
+      "agency": { "delta": 0.08, "delayYears": 2 },
+      "resources": { "delta": 0.07, "delayYears": 2 },
+      "trust": { "delta": 0.06, "delayYears": 3 }
     }
   }
 ]
