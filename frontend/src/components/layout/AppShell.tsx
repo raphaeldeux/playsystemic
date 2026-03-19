@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { useGameStore } from '../../store/gameStore';
 import Header from './Header';
-import Footer from './Footer';
 import Glossary from './Glossary';
 import CurvesPanel from '../dashboard/CurvesPanel';
 // eslint-disable-next-line react/jsx-pascal-case
@@ -15,13 +14,20 @@ import Act4SystemB from '../acts/Act4_SystemB';
 // eslint-disable-next-line react/jsx-pascal-case
 import Act5MyRole from '../acts/Act5_MyRole';
 
+const ACT_BG: Record<number, string> = {
+  1: 'from-slate-900 to-blue-950',
+  2: 'from-slate-900 to-indigo-950',
+  3: 'from-slate-900 to-red-950',
+  4: 'from-slate-900 to-green-950',
+  5: 'from-slate-900 to-blue-950',
+};
+
 export default function AppShell() {
   const { currentAct } = useGameStore();
+  const [showCurves, setShowCurves] = useState(false);
   const [_actKey, setActKey] = useState(0);
 
-  const handleActComplete = () => {
-    setActKey((k) => k + 1);
-  };
+  const handleActComplete = () => setActKey((k) => k + 1);
 
   const renderAct = () => {
     switch (currentAct) {
@@ -35,27 +41,58 @@ export default function AppShell() {
   };
 
   return (
-    <div className="flex flex-col h-screen overflow-hidden" style={{ backgroundColor: 'var(--color-light)' }}>
-      <Header />
+    <div className="flex flex-col h-screen overflow-hidden bg-slate-950">
+      <Header onToggleCurves={() => setShowCurves(v => !v)} showCurves={showCurves} />
 
       <div className="flex flex-1 overflow-hidden">
-        {/* Main game area */}
-        <div className="flex-1 overflow-y-auto p-4">
-          {renderAct()}
-        </div>
 
-        {/* Curves panel — sidebar on desktop */}
+        {/* ── Panneau gauche : jeu ── */}
         <div
-          className="hidden lg:flex w-[420px] border-l border-gray-200 bg-white overflow-hidden"
-          style={{ borderColor: '#E5E7EB' }}
+          className={`flex-1 overflow-y-auto bg-gradient-to-br ${ACT_BG[currentAct]} transition-all duration-700`}
         >
-          <div className="flex-1 p-3 overflow-hidden flex flex-col">
-            <CurvesPanel />
+          {/* Fond texturé subtil */}
+          <div
+            className="min-h-full px-4 py-6 sm:px-8 sm:py-8"
+            style={{
+              backgroundImage:
+                'radial-gradient(circle at 20% 50%, rgba(255,255,255,0.02) 0%, transparent 60%), radial-gradient(circle at 80% 20%, rgba(255,255,255,0.02) 0%, transparent 60%)',
+            }}
+          >
+            <div className="max-w-2xl mx-auto">
+              {renderAct()}
+            </div>
           </div>
         </div>
+
+        {/* ── Panneau droit : courbes (desktop toujours visible, mobile drawer) ── */}
+        <div
+          className={`
+            bg-slate-900 border-l border-slate-700/50
+            transition-all duration-300 overflow-hidden
+            hidden lg:flex flex-col
+            ${showCurves ? 'w-[460px]' : 'w-[420px]'}
+          `}
+        >
+          <CurvesPanel />
+        </div>
+
+        {/* ── Mobile : drawer courbes ── */}
+        {showCurves && (
+          <div
+            className="lg:hidden fixed inset-0 z-30"
+            onClick={() => setShowCurves(false)}
+          >
+            <div className="absolute inset-0 bg-black/60" />
+            <div
+              className="absolute right-0 top-0 bottom-0 w-full max-w-sm bg-slate-900 shadow-2xl overflow-y-auto"
+              onClick={e => e.stopPropagation()}
+            >
+              <CurvesPanel />
+            </div>
+          </div>
+        )}
       </div>
 
-      <Footer />
       <Glossary />
     </div>
   );

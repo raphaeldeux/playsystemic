@@ -10,211 +10,170 @@ const CONCEPTS: Record<Concept, { label: string; icon: string; color: string; de
     icon: '⬡',
     color: '#2563EB',
     description: 'Les parties constitutives d\'un système : acteurs, ressources, stocks.',
-    example: 'Dans un écosystème forestier : arbres, sol, eau, animaux, champignons.',
+    example: 'Forêt : arbres, sol, eau, animaux, champignons, microorganismes.',
   },
   regles: {
-    label: 'Règles de fonctionnement',
+    label: 'Règles',
     icon: '⚙',
     color: '#9333EA',
     description: 'Les flux et interactions qui relient les éléments entre eux.',
-    example: 'Dans une forêt : les arbres captent le carbone, les champignons échangent des nutriments avec les racines.',
+    example: 'Les arbres captent le carbone. Les champignons échangent des nutriments avec les racines.',
   },
   emergences: {
     label: 'Émergences',
     icon: '✦',
     color: '#16A34A',
-    description: 'Les propriétés du système qui n\'existent dans aucun de ses éléments pris séparément.',
-    example: 'La résilience d\'une forêt face aux incendies — aucun arbre seul n\'a cette propriété.',
+    description: 'Propriétés du système absentes de chaque élément pris séparément.',
+    example: 'La résilience d\'une forêt face aux incendies — aucun arbre seul ne l\'a.',
   },
   boucles: {
-    label: 'Boucles de rétroaction',
+    label: 'Boucles',
     icon: '↻',
     color: '#C87A2A',
-    description: 'Les effets qui reviennent influencer leurs propres causes, créant des dynamiques auto-entretenues.',
-    example: 'Plus d\'arbres → plus d\'évapotranspiration → plus de pluie → plus d\'arbres (boucle équilibrante).',
+    description: 'Les effets qui reviennent influencer leurs propres causes.',
+    example: 'Plus d\'arbres → plus d\'évapotranspiration → plus de pluie → plus d\'arbres.',
   },
 };
 
-const SYSTEM_EXAMPLE = {
-  title: 'Le système eau d\'un territoire',
-  elements: ['Rivières', 'Zones humides', 'Nappes phréatiques', 'Agriculture', 'Villes'],
-  regles: [
-    'L\'agriculture capte 70% de l\'eau disponible',
-    'Les zones humides filtrent et stockent l\'eau',
-    'Les villes imperméabilisent les sols',
-  ],
-  emergences: ['Disponibilité en eau potable', 'Fréquence des inondations', 'Biodiversité aquatique'],
-  boucles: [
-    { type: 'dégénérative', text: 'Sécheresse → moins de zones humides → moins de rétention → plus de sécheresse' },
-    { type: 'régénérative', text: 'Restauration zones humides → meilleure rétention → moins de sécheresses → plus de zones humides' },
-  ],
-};
+const BOUCLES_EXAMPLES = [
+  { type: 'dég.', text: 'Sécheresse → moins de zones humides → moins de rétention → plus de sécheresse', color: '#DC2626' },
+  { type: 'rég.', text: 'Restauration → meilleure rétention → moins de sécheresses → plus de zones humides', color: '#16A34A' },
+];
 
-type Props = {
-  onComplete: () => void;
-};
+type Props = { onComplete: () => void };
 
 export default function Act1_SystemsGame({ onComplete }: Props) {
-  const [unlockedConcepts, setUnlockedConcepts] = useState<Set<Concept>>(new Set());
-  const [activeTab, setActiveTab] = useState<Concept | null>(null);
+  const [unlocked, setUnlocked] = useState<Set<Concept>>(new Set());
+  const [active, setActive] = useState<Concept | null>(null);
   const { completeAct, setAct } = useGameStore();
 
-  const unlockConcept = (concept: Concept) => {
-    setUnlockedConcepts((prev) => new Set(Array.from(prev).concat(concept)));
-    setActiveTab(concept);
+  const unlock = (c: Concept) => {
+    setUnlocked(prev => new Set(Array.from(prev).concat(c)));
+    setActive(c);
   };
 
-  const handleComplete = () => {
-    completeAct(1);
-    setAct(2);
-    onComplete();
-  };
-
-  const allUnlocked = unlockedConcepts.size === 4;
+  const allDone = unlocked.size === 4;
 
   return (
-    <div className="flex flex-col gap-6 max-w-2xl mx-auto">
-      <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        className="text-center"
-      >
-        <div className="text-sm font-semibold uppercase tracking-widest text-blue-600 mb-2">Acte 1</div>
-        <h2 className="text-2xl font-bold text-gray-800 mb-2">L'enquête systémique</h2>
-        <p className="text-gray-600 text-sm leading-relaxed">
-          Avant de jouer avec les grands systèmes, maîtrisez le vocabulaire de la pensée systémique.
-          Explorez chaque concept sur un exemple concret.
+    <div className="flex flex-col gap-6">
+      {/* Act header */}
+      <motion.div initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }}>
+        <div className="text-xs font-bold uppercase tracking-widest text-blue-400 mb-1">Acte 1</div>
+        <h2 className="text-2xl font-black text-white mb-2">L'enquête systémique</h2>
+        <p className="text-slate-400 text-sm leading-relaxed">
+          Maîtrisez les 4 concepts de la pensée systémique sur un exemple concret avant de jouer avec les grands systèmes.
         </p>
       </motion.div>
 
-      {/* System example */}
-      <div className="rounded-xl border border-gray-200 bg-white p-4 shadow-sm">
-        <h3 className="font-bold text-gray-800 mb-3 flex items-center gap-2">
-          <span className="text-blue-500">🔍</span>
-          Étude de cas : {SYSTEM_EXAMPLE.title}
-        </h3>
-
-        <div className="grid grid-cols-2 gap-3">
-          {(Object.keys(CONCEPTS) as Concept[]).map((concept) => {
-            const info = CONCEPTS[concept];
-            const isUnlocked = unlockedConcepts.has(concept);
-            const isActive = activeTab === concept;
-
-            return (
-              <motion.button
-                key={concept}
-                whileHover={{ scale: 1.02 }}
-                whileTap={{ scale: 0.98 }}
-                onClick={() => unlockConcept(concept)}
-                className={`rounded-xl border-2 p-3 text-left transition-all ${
-                  isActive
-                    ? 'border-blue-400 shadow-md'
-                    : isUnlocked
-                    ? 'border-gray-300'
-                    : 'border-dashed border-gray-300 hover:border-gray-400'
-                }`}
-                style={isUnlocked ? { borderColor: info.color, backgroundColor: `${info.color}10` } : {}}
-              >
-                <div className="flex items-center gap-2 mb-1">
-                  <span className="text-xl">{info.icon}</span>
-                  <span className="font-semibold text-sm" style={{ color: isUnlocked ? info.color : '#6B7280' }}>
-                    {info.label}
-                  </span>
-                  {isUnlocked && <span className="ml-auto text-xs text-green-600">✓</span>}
-                </div>
-                {!isUnlocked && (
-                  <p className="text-xs text-gray-400">Cliquez pour explorer</p>
-                )}
-              </motion.button>
-            );
-          })}
-        </div>
+      {/* Concept grid */}
+      <div className="grid grid-cols-2 gap-3">
+        {(Object.keys(CONCEPTS) as Concept[]).map(c => {
+          const info = CONCEPTS[c];
+          const isActive = active === c;
+          const isDone = unlocked.has(c);
+          return (
+            <motion.button
+              key={c}
+              whileHover={{ scale: 1.02 }}
+              whileTap={{ scale: 0.97 }}
+              onClick={() => unlock(c)}
+              className={`
+                rounded-2xl border-2 p-4 text-left transition-all relative overflow-hidden
+                ${isActive
+                  ? 'border-transparent shadow-lg'
+                  : isDone
+                  ? 'border-slate-700/80'
+                  : 'border-slate-700/40 hover:border-slate-600 bg-slate-800/30'}
+              `}
+              style={isDone ? {
+                backgroundColor: `${info.color}18`,
+                borderColor: `${info.color}50`,
+                boxShadow: isActive ? `0 0 20px ${info.color}30` : undefined,
+              } : {}}
+            >
+              {isDone && isActive && (
+                <div className="absolute inset-0 bg-gradient-to-br from-white/5 to-transparent pointer-events-none" />
+              )}
+              <div className="flex items-center gap-2 mb-2">
+                <span className="text-2xl">{info.icon}</span>
+                <span
+                  className={`font-bold text-sm ${isDone ? '' : 'text-slate-400'}`}
+                  style={isDone ? { color: info.color } : {}}
+                >
+                  {info.label}
+                </span>
+                {isDone && <span className="ml-auto text-xs" style={{ color: info.color }}>✓</span>}
+              </div>
+              {!isDone && <p className="text-xs text-slate-500">Cliquez pour explorer →</p>}
+              {isDone && <p className="text-xs text-slate-400 leading-snug">{info.description}</p>}
+            </motion.button>
+          );
+        })}
       </div>
 
-      {/* Active concept detail */}
+      {/* Detail panel */}
       <AnimatePresence mode="wait">
-        {activeTab && (
+        {active && (
           <motion.div
-            key={activeTab}
-            initial={{ opacity: 0, y: 10 }}
+            key={active}
+            initial={{ opacity: 0, y: 8 }}
             animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -10 }}
-            className="rounded-xl border p-4 bg-white shadow-sm"
-            style={{ borderColor: CONCEPTS[activeTab].color }}
+            exit={{ opacity: 0, y: -8 }}
+            transition={{ duration: 0.25 }}
+            className="rounded-2xl border p-5"
+            style={{
+              backgroundColor: `${CONCEPTS[active].color}12`,
+              borderColor: `${CONCEPTS[active].color}40`,
+            }}
           >
-            <h4 className="font-bold text-base mb-2" style={{ color: CONCEPTS[activeTab].color }}>
-              {CONCEPTS[activeTab].icon} {CONCEPTS[activeTab].label}
-            </h4>
-            <p className="text-sm text-gray-700 mb-3">{CONCEPTS[activeTab].description}</p>
-            <div
-              className="rounded-lg p-3 text-sm text-gray-600"
-              style={{ backgroundColor: `${CONCEPTS[activeTab].color}10` }}
-            >
-              <strong>Exemple — {SYSTEM_EXAMPLE.title} :</strong>
-              <br />
-              {activeTab === 'elements' && SYSTEM_EXAMPLE.elements.join(' · ')}
-              {activeTab === 'regles' && SYSTEM_EXAMPLE.regles.join(' — ')}
-              {activeTab === 'emergences' && SYSTEM_EXAMPLE.emergences.join(' · ')}
-              {activeTab === 'boucles' && (
-                <div className="flex flex-col gap-2 mt-1">
-                  {SYSTEM_EXAMPLE.boucles.map((b, i) => (
-                    <div key={i} className={`rounded p-2 text-xs ${b.type === 'dégénérative' ? 'bg-red-100' : 'bg-green-100'}`}>
-                      <strong className={b.type === 'dégénérative' ? 'text-red-700' : 'text-green-700'}>
-                        {b.type === 'dégénérative' ? '↘ Renforçante dégénérative' : '↗ Équilibrante régénérative'}
-                      </strong>
-                      <br />{b.text}
+            <div className="flex items-center gap-2 mb-3">
+              <span className="text-2xl">{CONCEPTS[active].icon}</span>
+              <h4 className="font-bold text-base text-white">{CONCEPTS[active].label}</h4>
+            </div>
+            <p className="text-sm text-slate-300 mb-3">{CONCEPTS[active].description}</p>
+            <div className="rounded-xl bg-slate-900/60 p-3">
+              <p className="text-xs text-slate-500 uppercase font-semibold mb-1">Exemple — Système eau d'un territoire</p>
+              {active === 'boucles' ? (
+                <div className="flex flex-col gap-2">
+                  {BOUCLES_EXAMPLES.map((b, i) => (
+                    <div key={i} className="rounded-lg p-2 text-xs" style={{ backgroundColor: `${b.color}18` }}>
+                      <span className="font-bold" style={{ color: b.color }}>{b.type} </span>
+                      <span className="text-slate-300">{b.text}</span>
                     </div>
                   ))}
                 </div>
+              ) : (
+                <p className="text-sm text-slate-300">{CONCEPTS[active].example}</p>
               )}
             </div>
           </motion.div>
         )}
       </AnimatePresence>
 
-      {/* Glossary preview */}
-      {unlockedConcepts.size > 0 && (
-        <div className="rounded-xl bg-blue-50 border border-blue-200 p-3">
-          <p className="text-xs font-semibold text-blue-700 mb-2">
-            Concepts déverrouillés ({unlockedConcepts.size}/4)
-          </p>
-          <div className="flex gap-2 flex-wrap">
-            {Array.from(unlockedConcepts).map((c) => {
-              const concept = CONCEPTS[c as Concept];
-              return (
-                <span
-                  key={c}
-                  className="text-xs px-2 py-1 rounded-full text-white"
-                  style={{ backgroundColor: concept.color }}
-                >
-                  {concept.label}
-                </span>
-              );
-            })}
-          </div>
-        </div>
-      )}
+      {/* Progress + CTA */}
+      <div className="flex items-center gap-3">
+        {(Object.keys(CONCEPTS) as Concept[]).map(c => (
+          <div
+            key={c}
+            className="flex-1 h-1 rounded-full transition-all duration-500"
+            style={{ backgroundColor: unlocked.has(c) ? CONCEPTS[c].color : '#1e293b' }}
+          />
+        ))}
+      </div>
 
-      {/* Progress and CTA */}
-      {allUnlocked && (
-        <motion.div
-          initial={{ opacity: 0, scale: 0.95 }}
-          animate={{ opacity: 1, scale: 1 }}
-          className="text-center"
-        >
-          <div className="rounded-xl bg-green-50 border border-green-300 p-4 mb-4">
-            <p className="text-green-800 font-semibold mb-1">✓ Vous maîtrisez le vocabulaire systémique !</p>
-            <p className="text-green-700 text-sm">
-              Ces 4 concepts sont vos outils pour comprendre pourquoi le monde fonctionne comme il fonctionne
-              — et comment il pourrait fonctionner autrement.
+      {allDone && (
+        <motion.div initial={{ opacity: 0, scale: 0.97 }} animate={{ opacity: 1, scale: 1 }}>
+          <div className="rounded-2xl bg-emerald-950/40 border border-emerald-700/40 p-4 mb-4">
+            <p className="text-emerald-400 font-bold mb-1">✓ Vocabulaire systémique maîtrisé</p>
+            <p className="text-emerald-300/80 text-sm">
+              Ces 4 concepts sont vos outils pour comprendre comment le monde fonctionne — et comment il pourrait fonctionner autrement.
             </p>
           </div>
           <button
-            onClick={handleComplete}
-            className="px-8 py-3 rounded-xl text-white font-bold text-base shadow-md hover:shadow-lg transition-all"
-            style={{ backgroundColor: 'var(--color-accent)' }}
+            onClick={() => { completeAct(1); setAct(2); onComplete(); }}
+            className="w-full py-3.5 rounded-2xl text-white font-bold text-sm transition-all bg-blue-600 hover:bg-blue-500 shadow-lg shadow-blue-900/50"
           >
-            Passer à l'Acte 2 : Les 3 grands systèmes →
+            Acte 2 : Les 3 grands systèmes →
           </button>
         </motion.div>
       )}

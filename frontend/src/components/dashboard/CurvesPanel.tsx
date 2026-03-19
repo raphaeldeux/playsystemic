@@ -1,223 +1,180 @@
 import React, { useEffect, useState } from 'react';
 import {
-  LineChart,
-  Line,
-  XAxis,
-  YAxis,
-  CartesianGrid,
-  Tooltip,
-  ReferenceLine,
-  ResponsiveContainer,
-  Legend,
+  LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip,
+  ReferenceLine, ResponsiveContainer,
 } from 'recharts';
 import { INDICATORS, getIndicatorStatus } from '../../engine/indicators';
 import { useGameStore } from '../../store/gameStore';
 import { useSimulationStore } from '../../store/simulationStore';
 import { useUIStore } from '../../store/uiStore';
 
-const STATUS_COLORS: Record<string, string> = {
-  healthy: '#16A34A',
-  watch: '#2B4C7E',
-  alert: '#C87A2A',
-  critical: '#DC2626',
-  tipping: '#8B1A1A',
-};
-
 export default function CurvesPanel() {
   const { indicators } = useGameStore();
   const { scenarios, initialized, initialize } = useSimulationStore();
   const { showScenarios, selectedYear, setSelectedYear } = useUIStore();
-  const [activeIndicators, setActiveIndicators] = useState<Set<string>>(
-    new Set(INDICATORS.map((i) => i.id))
+  const [activeInds, setActiveInds] = useState<Set<string>>(
+    new Set(['climate', 'ecosystems', 'equity', 'resilience'])
   );
 
-  useEffect(() => {
-    if (!initialized) initialize();
-  }, [initialized, initialize]);
+  useEffect(() => { if (!initialized) initialize(); }, [initialized, initialize]);
 
-  // Build chart data: one point per year
-  const maxYear = 100;
-  const chartData = Array.from({ length: maxYear + 1 }, (_, year) => {
-    const point: Record<string, number | string> = { year };
-    INDICATORS.forEach((ind) => {
-      const arr = indicators[ind.id as keyof typeof indicators];
-      point[`player_${ind.id}`] = arr?.[year] ?? arr?.[arr.length - 1] ?? ind.initialValue;
+  const chartData = Array.from({ length: 101 }, (_, year) => {
+    const pt: Record<string, number | string> = { year };
+    INDICATORS.forEach(ind => {
+      const arr = indicators[ind.id as keyof typeof indicators] as number[];
+      pt[`p_${ind.id}`] = arr?.[year] ?? arr?.[arr.length - 1] ?? ind.initialValue;
     });
     if (showScenarios) {
-      scenarios.forEach((scenario) => {
-        INDICATORS.forEach((ind) => {
-          const arr = scenario.data[ind.id as keyof typeof scenario.data];
-          point[`${scenario.id}_${ind.id}`] = arr?.[year] ?? 0;
+      scenarios.forEach(s => {
+        INDICATORS.forEach(ind => {
+          const arr = s.data[ind.id as keyof typeof s.data] as number[];
+          pt[`${s.id}_${ind.id}`] = arr?.[year] ?? 0;
         });
       });
     }
-    return point;
+    return pt;
   });
 
-  const toggleIndicator = (id: string) => {
-    setActiveIndicators((prev) => {
-      const next = new Set(prev);
-      if (next.has(id)) next.delete(id);
-      else next.add(id);
-      return next;
-    });
+  const toggle = (id: string) => setActiveInds(prev => {
+    const n = new Set(prev);
+    n.has(id) ? n.delete(id) : n.add(id);
+    return n;
+  });
+
+  const getVal = (id: string) => {
+    const arr = indicators[id as keyof typeof indicators] as number[];
+    return arr?.[selectedYear] ?? arr?.[arr.length - 1] ?? 0.4;
   };
 
   return (
-    <div className="flex flex-col h-full bg-white rounded-xl shadow-sm p-4 gap-4">
-      <div className="flex items-center justify-between">
-        <h2 className="text-lg font-bold" style={{ color: 'var(--color-accent)' }}>
-          Trajectoires des indicateurs
-        </h2>
-        <div className="flex items-center gap-2">
-          <span className="text-sm text-gray-500">An {selectedYear}</span>
-          <input
-            type="range"
-            min={0}
-            max={100}
-            value={selectedYear}
-            onChange={(e) => setSelectedYear(Number(e.target.value))}
-            className="w-24"
-          />
+    <div className="flex flex-col h-full overflow-hidden">
+      {/* Header */}
+      <div className="px-4 pt-4 pb-3 border-b border-slate-700/50 flex-shrink-0">
+        <div className="flex items-center justify-between mb-3">
+          <span className="text-slate-200 font-bold text-sm">Trajectoires</span>
+          <div className="flex items-center gap-2">
+            <span className="text-slate-500 text-xs">An {selectedYear}</span>
+            <input
+              type="range" min={0} max={100} value={selectedYear}
+              onChange={e => setSelectedYear(Number(e.target.value))}
+              className="w-20 accent-blue-500"
+            />
+          </div>
+        </div>
+
+        {/* Indicator value badges */}
+        <div className="grid grid-cols-4 gap-1.5">
+          {INDICATORS.map(ind => {
+            const val = getVal(ind.id);
+            const status = getIndicatorStatus(val, ind);
+            const active = activeInds.has(ind.id);
+            const pct = Math.round(val * 100);
+            return (
+              <button
+                key={ind.id}
+                onClick={() => toggle(ind.id)}
+                className={`rounded-lg p-2 text-center transition-all border ${
+                  active ? 'border-transparent' : 'border-slate-700 bg-slate-800/40'
+                } ${status === 'tipping' ? 'pulse-warning' : ''}`}
+                style={active ? { backgroundColor: `${ind.color}25`, borderColor: `${ind.color}60` } : {}}
+              >
+                <div
+                  className={`text-sm font-black leading-none ${
+                    status === 'tipping' ? 'text-red-400' :
+                    status === 'critical' ? 'text-red-400' :
+                    status === 'alert' ? 'text-amber-400' :
+                    status === 'watch' ? 'text-slate-300' : 'text-emerald-400'
+                  }`}
+                >
+                  {pct}%
+                </div>
+                <div className="text-slate-500 leading-tight mt-0.5" style={{ fontSize: '0.6rem' }}>
+                  {ind.label.split(' ')[0]}
+                </div>
+              </button>
+            );
+          })}
         </div>
       </div>
 
-      {/* Indicator toggles */}
-      <div className="flex flex-wrap gap-2">
-        {INDICATORS.map((ind) => {
-          const currentVal = (indicators[ind.id as keyof typeof indicators] as number[])?.[selectedYear]
-            ?? ind.initialValue;
-          const status = getIndicatorStatus(currentVal, ind);
-          const active = activeIndicators.has(ind.id);
-          return (
-            <button
-              key={ind.id}
-              onClick={() => toggleIndicator(ind.id)}
-              className={`px-2 py-1 rounded-full text-xs font-medium border transition-all ${
-                active ? 'text-white' : 'bg-white text-gray-400 border-gray-200'
-              } ${status === 'tipping' ? 'pulse-warning' : ''}`}
-              style={active ? { backgroundColor: ind.color, borderColor: ind.color } : {}}
-            >
-              {ind.label}
-              {status === 'critical' || status === 'tipping' ? ' ⚠' : ''}
-            </button>
-          );
-        })}
-      </div>
-
-      {/* Main chart */}
-      <div className="flex-1 min-h-0">
+      {/* Chart */}
+      <div className="flex-1 min-h-0 px-2 py-2">
         <ResponsiveContainer width="100%" height="100%">
-          <LineChart data={chartData} margin={{ top: 5, right: 10, left: -20, bottom: 5 }}>
-            <CartesianGrid strokeDasharray="3 3" stroke="#E5E7EB" />
+          <LineChart data={chartData} margin={{ top: 4, right: 8, left: -28, bottom: 4 }}>
+            <CartesianGrid strokeDasharray="2 4" stroke="#1e293b" />
             <XAxis
-              dataKey="year"
-              label={{ value: 'Années', position: 'insideBottomRight', offset: -5, fontSize: 11 }}
-              tick={{ fontSize: 10 }}
+              dataKey="year" tick={{ fontSize: 9, fill: '#475569' }}
+              tickLine={false} axisLine={false}
             />
-            <YAxis domain={[0, 1]} tickFormatter={(v) => `${Math.round(v * 100)}%`} tick={{ fontSize: 10 }} />
+            <YAxis
+              domain={[0, 1]}
+              tickFormatter={v => `${Math.round(v * 100)}%`}
+              tick={{ fontSize: 9, fill: '#475569' }}
+              tickLine={false} axisLine={false}
+            />
             <Tooltip
+              contentStyle={{ backgroundColor: '#0f172a', border: '1px solid #334155', borderRadius: 8, fontSize: 11 }}
+              labelStyle={{ color: '#94a3b8' }}
               formatter={(value: any, name: any) => {
                 const pct = `${Math.round((value as number) * 100)}%`;
-                const label = String(name).replace(/^(player_|BAU_|REFORM_|TRANSITION_)/, '');
+                const label = String(name).replace(/^(p_|BAU_|REFORM_|TRANSITION_)/, '');
                 return [pct, label];
               }}
-              labelFormatter={(label) => `Année ${label}`}
+              labelFormatter={l => `Année ${l}`}
             />
-            <ReferenceLine x={selectedYear} stroke="#4A4A6A" strokeDasharray="4 4" />
+            <ReferenceLine x={selectedYear} stroke="#475569" strokeDasharray="3 3" strokeWidth={1} />
 
-            {/* Critical thresholds */}
-            {INDICATORS.filter((i) => activeIndicators.has(i.id)).map((ind) => (
+            {/* Tipping point lines */}
+            {INDICATORS.filter(i => activeInds.has(i.id)).map(ind => (
               <ReferenceLine
-                key={`crit_${ind.id}`}
-                y={ind.criticalThreshold}
-                stroke={ind.color}
-                strokeOpacity={0.3}
-                strokeDasharray="2 4"
+                key={`tp_${ind.id}`}
+                y={ind.tippingPoint}
+                stroke={ind.color} strokeOpacity={0.2} strokeDasharray="1 6"
               />
             ))}
+
+            {/* Scenario curves */}
+            {showScenarios && scenarios.map(s =>
+              INDICATORS.filter(i => activeInds.has(i.id)).map(ind => (
+                <Line
+                  key={`${s.id}_${ind.id}`}
+                  dataKey={`${s.id}_${ind.id}`}
+                  stroke={s.color} strokeWidth={1}
+                  strokeDasharray="4 4" dot={false} opacity={0.35}
+                />
+              ))
+            )}
 
             {/* Player curves */}
-            {INDICATORS.filter((i) => activeIndicators.has(i.id)).map((ind) => (
+            {INDICATORS.filter(i => activeInds.has(i.id)).map(ind => (
               <Line
-                key={`player_${ind.id}`}
-                type="monotone"
-                dataKey={`player_${ind.id}`}
-                stroke={ind.color}
-                strokeWidth={2.5}
-                dot={false}
-                name={ind.label}
+                key={`p_${ind.id}`}
+                dataKey={`p_${ind.id}`}
+                stroke={ind.color} strokeWidth={2.5}
+                dot={false} name={ind.label}
+                style={{ filter: `drop-shadow(0 0 3px ${ind.color}60)` }}
               />
             ))}
-
-            {/* Scenario curves (dotted) */}
-            {showScenarios &&
-              scenarios.map((scenario) =>
-                INDICATORS.filter((i) => activeIndicators.has(i.id)).map((ind) => (
-                  <Line
-                    key={`${scenario.id}_${ind.id}`}
-                    type="monotone"
-                    dataKey={`${scenario.id}_${ind.id}`}
-                    stroke={scenario.color}
-                    strokeWidth={1}
-                    strokeDasharray="4 4"
-                    dot={false}
-                    opacity={0.4}
-                    name={`${scenario.label} — ${ind.label}`}
-                  />
-                ))
-              )}
           </LineChart>
         </ResponsiveContainer>
       </div>
 
-      {/* Legend scenarios */}
+      {/* Scenario legend */}
       {showScenarios && (
-        <div className="flex gap-4 text-xs text-gray-500 justify-center">
-          <span className="flex items-center gap-1">
-            <span className="w-6 border-t-2 border-dashed" style={{ borderColor: '#8B1A1A' }} />
-            Business as usual
-          </span>
-          <span className="flex items-center gap-1">
-            <span className="w-6 border-t-2 border-dashed" style={{ borderColor: '#C87A2A' }} />
-            Réformes
-          </span>
-          <span className="flex items-center gap-1">
-            <span className="w-6 border-t-2 border-dashed" style={{ borderColor: '#1A5C2A' }} />
-            Transition systémique
-          </span>
-          <span className="flex items-center gap-1">
-            <span className="w-6 border-t-2 border-solid border-gray-700" />
-            Votre trajectoire
-          </span>
+        <div className="px-4 pb-3 flex-shrink-0 flex flex-col gap-1">
+          <p className="text-slate-600 text-xs mb-1">Scénarios de référence (pointillés)</p>
+          {[
+            { color: '#8B1A1A', label: 'Business as usual' },
+            { color: '#C87A2A', label: 'Réformes incrémentales' },
+            { color: '#16A34A', label: 'Transition systémique' },
+          ].map(s => (
+            <div key={s.label} className="flex items-center gap-2">
+              <div className="w-6 border-t-2 border-dashed" style={{ borderColor: s.color }} />
+              <span className="text-xs text-slate-500">{s.label}</span>
+            </div>
+          ))}
         </div>
       )}
-
-      {/* Indicator status grid */}
-      <div className="grid grid-cols-4 gap-2">
-        {INDICATORS.map((ind) => {
-          const arr = indicators[ind.id as keyof typeof indicators] as number[];
-          const val = arr?.[selectedYear] ?? arr?.[arr.length - 1] ?? ind.initialValue;
-          const status = getIndicatorStatus(val, ind);
-          return (
-            <div
-              key={ind.id}
-              className="rounded-lg p-2 text-center text-xs"
-              style={{ backgroundColor: `${ind.color}15`, border: `1px solid ${ind.color}40` }}
-            >
-              <div className="font-bold" style={{ color: STATUS_COLORS[status] }}>
-                {Math.round(val * 100)}%
-              </div>
-              <div className="text-gray-600 leading-tight mt-0.5" style={{ fontSize: '0.65rem' }}>
-                {ind.label}
-              </div>
-              {(status === 'critical' || status === 'tipping') && (
-                <div className="text-red-600 font-bold pulse-warning">⚠</div>
-              )}
-            </div>
-          );
-        })}
-      </div>
     </div>
   );
 }
