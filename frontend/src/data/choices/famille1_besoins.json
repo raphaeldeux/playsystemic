@@ -1,0 +1,39 @@
+[
+  {
+    "id": "choice_besoins_1",
+    "famille": "besoins",
+    "ordre": 1,
+    "question": "Une ville de 200 000 habitants doit réviser sa politique de développement économique pour les 20 prochaines années.",
+    "contexte": "Le conseil municipal est confronté à un choix fondamental : orienter les investissements publics vers quels types de besoins ? La chambre de commerce pousse pour des centres commerciaux et des zones de loisirs haut de gamme. Des associations citoyennes demandent de prioriser santé, éducation et logement abordable.",
+    "choix_A": {
+      "label": "Investir prioritairement dans les infrastructures de loisirs et de consommation",
+      "croyance_id": "lot6-1",
+      "effets": [
+        { "indicatorId": "wellbeing", "delta": -0.08, "delayYears": 5 },
+        { "indicatorId": "resources", "delta": -0.06, "delayYears": 3 },
+        { "indicatorId": "equity", "delta": -0.05, "delayYears": 4 }
+      ],
+      "feedback": "Les centres commerciaux génèrent une croissance à court terme, mais l'identité de la ville se réduit à sa capacité de consommation. Les inégalités se creusent entre ceux qui peuvent consommer et les autres. La croyance 'Avoir, c'est être' s'ancre dans les institutions locales. Dans 20 ans, le bien-être global stagne malgré l'abondance matérielle."
+    },
+    "choix_B": {
+      "label": "Répartir équitablement les investissements entre loisirs et services essentiels",
+      "effets": [
+        { "indicatorId": "wellbeing", "delta": 0.02, "delayYears": 3 },
+        { "indicatorId": "equity", "delta": 0.01, "delayYears": 2 }
+      ],
+      "feedback": "Une approche équilibrée qui améliore légèrement la situation, mais le cadre 'Avoir = être' n'est pas remis en question. Les besoins fondamentaux restent sous-financés face aux pressions économiques. Les réformes incrementales ralentissent la dégradation sans inverser la tendance systémique."
+    },
+    "choix_C": {
+      "label": "Réorienter l'économie locale vers la satisfaction des besoins fondamentaux",
+      "croyance_requise": "lot7-1",
+      "carte_fresque": "lot8-1",
+      "effets": [
+        { "indicatorId": "wellbeing", "delta": 0.15, "delayYears": 8 },
+        { "indicatorId": "equity", "delta": 0.12, "delayYears": 5 },
+        { "indicatorId": "resilience", "delta": 0.10, "delayYears": 6 },
+        { "indicatorId": "agency", "delta": 0.08, "delayYears": 4 }
+      ],
+      "feedback": "Les effets positifs mettront 5-10 ans à se concrétiser. Court terme : certains acteurs économiques résistent. Long terme : la ville développe une économie du care et des communs, plus robuste et plus épanouissante. La croyance 'richesse ≠ possession' devient opérationnelle dans les politiques publiques. Boucle équilibrante activée : besoins satisfaits → moins de surproduction → ressources préservées."
+    }
+  }
+]

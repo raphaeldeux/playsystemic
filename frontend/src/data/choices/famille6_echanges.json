@@ -1,0 +1,40 @@
+[
+  {
+    "id": "choice_echanges_logement",
+    "famille": "echanges",
+    "ordre": 1,
+    "question": "Une métropole fait face à une crise du logement sévère. Les prix ont triplé en 10 ans, expulsant les classes moyennes et populaires du centre-ville.",
+    "contexte": "Le marché immobilier est dominé par des fonds d'investissement. Le maire propose trois orientations politiques. La décision engage 20 ans d'aménagement urbain.",
+    "choix_A": {
+      "label": "Laisser le marché immobilier libre de fonctionner avec des incitations fiscales",
+      "croyance_id": "lot6-6",
+      "effets": [
+        { "indicatorId": "equity", "delta": -0.10, "delayYears": 3 },
+        { "indicatorId": "trust", "delta": -0.08, "delayYears": 4 },
+        { "indicatorId": "wellbeing", "delta": -0.06, "delayYears": 5 }
+      ],
+      "feedback": "La logique de propriété privée et de marché libre intensifie la spéculation. Les incitations fiscales profitent surtout aux propriétaires déjà aisés. Les inégalités spatiales explosent. La confiance envers les institutions s'effondre. Boucle renforçante : spéculation → exclusion → ségrégation → perte de cohésion sociale."
+    },
+    "choix_B": {
+      "label": "Augmenter le parc de logements sociaux de 20%",
+      "effets": [
+        { "indicatorId": "equity", "delta": 0.04, "delayYears": 4 },
+        { "indicatorId": "wellbeing", "delta": 0.03, "delayYears": 5 }
+      ],
+      "feedback": "Le logement social aide une partie des ménages mais ne remet pas en question la logique de marché dominante. La pression spéculative continue. Les logements sociaux restent stigmatisés et insuffisants. Sans changer les règles d'accès au logement, la réforme reste insuffisante."
+    },
+    "choix_C": {
+      "label": "Développer des formes d'habitat en communs : coopératives d'habitants et CLT",
+      "croyance_requise": "lot7-6",
+      "carte_fresque": "lot8-6",
+      "effets": [
+        { "indicatorId": "equity", "delta": 0.16, "delayYears": 7 },
+        { "indicatorId": "trust", "delta": 0.12, "delayYears": 5 },
+        { "indicatorId": "wellbeing", "delta": 0.14, "delayYears": 6 },
+        { "indicatorId": "agency", "delta": 0.10, "delayYears": 5 },
+        { "indicatorId": "resilience", "delta": 0.08, "delayYears": 8 }
+      ],
+      "feedback": "Les Community Land Trusts (CLT) et coopératives d'habitants dissocient l'accès au logement du marché spéculatif. Délai : 5-10 ans pour déployer à l'échelle. Court terme : résistance des promoteurs et fonds immobiliers. Long terme : logement abordable pérenne, lien social renforcé, mixité préservée. La logique d'usage remplace la logique de propriété."
+    }
+  }
+]

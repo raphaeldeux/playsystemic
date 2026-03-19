@@ -1,0 +1,39 @@
+[
+  {
+    "id": "choice_production_industrie",
+    "famille": "production",
+    "ordre": 1,
+    "question": "Une grande entreprise industrielle doit repenser son modèle de production face à la raréfaction des matières premières.",
+    "contexte": "L'entreprise extrait des matières vierges, fabrique, vend et jette. Les coûts des matières premières explosent. Trois options sont sur la table du conseil d'administration.",
+    "choix_A": {
+      "label": "Augmenter la productivité via l'automatisation et les économies d'échelle",
+      "croyance_id": "lot6-4",
+      "effets": [
+        { "indicatorId": "resources", "delta": -0.08, "delayYears": 3 },
+        { "indicatorId": "resilience", "delta": -0.05, "delayYears": 5 },
+        { "indicatorId": "ecosystems", "delta": -0.04, "delayYears": 4 }
+      ],
+      "feedback": "La production linéaire s'accélère : extraire, fabriquer, jeter. L'efficacité croissante augmente la consommation totale de ressources (effet rebond de Jevons). La fragilité augmente car les méga-infrastructures flux tendus sont vulnérables aux ruptures d'approvisionnement. Boucle dégénérative amplifiée."
+    },
+    "choix_B": {
+      "label": "Optimiser la consommation de matières premières et réduire les déchets de 30%",
+      "effets": [
+        { "indicatorId": "resources", "delta": 0.03, "delayYears": 2 },
+        { "indicatorId": "ecosystems", "delta": 0.02, "delayYears": 3 }
+      ],
+      "feedback": "Une amélioration réelle mais insuffisante. L'économie circulaire partielle réduit l'impact mais le modèle linéaire fondamental persiste. L'effet rebond risque d'annuler les gains : en produisant plus efficacement, on produit davantage. Sans sobriété systémique, la réduction est marginale."
+    },
+    "choix_C": {
+      "label": "Passer à un modèle de circularité complète et d'éco-conception bioinspirée",
+      "croyance_requise": "lot7-4",
+      "carte_fresque": "lot8-4",
+      "effets": [
+        { "indicatorId": "resources", "delta": 0.16, "delayYears": 8 },
+        { "indicatorId": "resilience", "delta": 0.12, "delayYears": 6 },
+        { "indicatorId": "ecosystems", "delta": 0.10, "delayYears": 10 },
+        { "indicatorId": "climate", "delta": 0.08, "delayYears": 12 }
+      ],
+      "feedback": "La transition vers la circularité demande 5-10 ans d'investissement. Court terme : coûts de reconversion. Long terme : indépendance des ressources vierges, robustesse face aux crises d'approvisionnement, zéro déchet. La pensée bioinspirée transforme les déchets en ressources : boucle équilibrante durable."
+    }
+  }
+]
